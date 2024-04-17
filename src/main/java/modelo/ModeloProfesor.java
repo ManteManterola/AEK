@@ -19,7 +19,6 @@ public class ModeloProfesor extends Conector{
 				profesor.setDni(rs.getString("dni"));
 				profesor.setNombre(rs.getString("nombre"));
 				profesor.setApellido(rs.getString("apellido"));
-				
 				profesores.add(profesor);
 			}
 		} catch (SQLException e) {
@@ -29,6 +28,31 @@ public class ModeloProfesor extends Conector{
 		
 		return profesores;
 	}
+	
+	public Profesor get(int id) {
+		
+		try {
+			PreparedStatement pst = this.conexion.prepareStatement("SELECT * FROM profesores WHERE id=?");
+			pst.setInt(1, id);
+			ResultSet rs = pst.executeQuery();
+			
+			if (rs.next()) {
+				Profesor profesor = new Profesor();
+				profesor.setId(rs.getInt("id"));
+				profesor.setDni(rs.getString("dni"));
+				profesor.setNombre(rs.getString("nombre"));
+				profesor.setApellido(rs.getString("apellido"));
+				
+				return profesor;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	
 	
 	public void insertarProfesor(Profesor profesor) {
 		String sql = "INSERT INTO PROFESORES (dni,nombre,apellido) VALUES (?,?,?)";
@@ -59,4 +83,5 @@ public class ModeloProfesor extends Conector{
 			e.printStackTrace();
 		}
 	}
+	
 }

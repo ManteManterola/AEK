@@ -41,7 +41,7 @@
                             <td>${profesor.nombre}</td>
                             <td>${profesor.apellido}</td>
                             <td>
-                            	<a href="Show?id=${profesor.id}">Ver</a>
+                            	<a href="ShowProfesores?id=${profesor.id}">Ver</a>
                             	<a href="Edit?id=${profesor.id}">Modificar</a>
                             	<a href="Destroy?id=${profesor.id}">Eliminar</a>                            	
                             </td>
