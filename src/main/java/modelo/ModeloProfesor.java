@@ -71,16 +71,32 @@ public class ModeloProfesor extends Conector{
 		}
 	}
 	
-	public void deleteProfesor(String dni) {
-		String sql = "DELETE FROM PROFESORES WHERE dni=?";
+	public void deleteProfesor(int id) {
+		String sql = "DELETE FROM PROFESORES WHERE id=?";
 		
 		try {
 			PreparedStatement pst = conexion.prepareStatement(sql);
-			pst.setString(1, dni);
+			pst.setInt(1, id);
 			pst.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	public int update(Profesor profesor) {
+		
+		try {
+			PreparedStatement pst = this.conexion.prepareStatement("UPDATE profesores SET dni = ?, nombre = ?, apellido = ? WHERE id = ?");
+			pst.setString(1, profesor.getDni());
+			pst.setString(2, profesor.getNombre());
+			pst.setString(3, profesor.getApellido());
+			pst.setInt(4, profesor.getId());
+			
+			return pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
 		}
 	}
 	

@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <a href="Create">Crear</a>
+                    <a href="CreateProfesores">Crear</a>
                 </div>
             </div>
             <div class="row">
@@ -42,8 +42,8 @@
                             <td>${profesor.apellido}</td>
                             <td>
                             	<a href="ShowProfesores?id=${profesor.id}">Ver</a>
-                            	<a href="Edit?id=${profesor.id}">Modificar</a>
-                            	<a href="Destroy?id=${profesor.id}">Eliminar</a>                            	
+                            	<a href="EditProfesores?id=${profesor.id}">Modificar</a>
+                            	<a href="DestroyProfesores?id=${profesor.id}">Eliminar</a>                            	
                             </td>
                           </tr>
                           </c:forEach>

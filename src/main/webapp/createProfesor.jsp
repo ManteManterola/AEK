@@ -7,7 +7,7 @@
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Show profesor</title>
+        <title>Insertar Profesor</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
       </head>
       <body>
@@ -20,10 +20,12 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <p>Id: ${profesor.id}</p>
-                    <p>DNI: ${profesor.dni}</p>
-                    <p>Nombre: ${profesor.nombre}</p> 
-                    <p>Apellido: ${profesor.apellido}</p> 
+                    <form action="StoreProfesores" method="post">
+                    	<p>DNI: <input type="text" name="dni"/></p>
+                    	<p>Nombre: <input type="text" name="nombre"/></p>
+                    	<p>Apellido: <input type="text" name="apellido"/></p>
+						<input type="submit" value="Guardar" name="Guardar">
+					</form>
                 </div>
             </div>
         </div>
