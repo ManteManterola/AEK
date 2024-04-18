@@ -7,7 +7,7 @@ DROP TABLE SEGUIMIENTOS CASCADE CONSTRAINTS;
 
 CREATE TABLE PROFESORES (
 id NUMBER(10),
-dni NUMBER(9),
+dni VARCHAR2(9),
 nombre VARCHAR2(25),
 apellido VARCHAR2(25)
 );
@@ -27,7 +27,7 @@ idCurso NUMBER(10)
 
 CREATE TABLE ALUMNOS (
 id NUMBER(10),
-dni NUMBER(9),
+dni VARCHAR2(9),
 nombre VARCHAR2(25),
 apellido VARCHAR2(25),
 edad NUMBER (2),
@@ -51,7 +51,7 @@ ADD CONSTRAINT unique_dni UNIQUE (dni);
 -- Autoincrement id profesores --
 
 -- Eliminar la secuencia (Resetear ids)-- 
-DROP SEQUENCE profesores_id_seq;
+//DROP SEQUENCE profesores_id_seq;
 ------------------------------------
 
 CREATE SEQUENCE profesores_id_seq
@@ -89,7 +89,7 @@ ADD CONSTRAINT chk_turno CHECK (turno IN ('Diurno', 'Vespertino', 'Nocturno'));
 -- Autoincrement id cursos --
 
 -- Eliminar la secuencia (Resetear ids)-- 
-DROP SEQUENCE cursos_id_seq;
+//DROP SEQUENCE cursos_id_seq;
 ------------------------------------
 
 CREATE SEQUENCE cursos_id_seq
@@ -126,7 +126,7 @@ ADD CONSTRAINT fk_alumno_curso FOREIGN KEY (idCurso) REFERENCES CURSOS(id);
 -- Autoincrement id alumnos --
 
 -- Eliminar la secuencia (Resetear ids)-- 
-DROP SEQUENCE alumnos_id_seq;
+//DROP SEQUENCE alumnos_id_seq;
 ------------------------------------
 
 CREATE SEQUENCE alumnos_id_seq
