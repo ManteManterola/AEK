@@ -23,7 +23,7 @@
                     <p>Id: ${curso.id}</p>
                     <p>Nivel: ${curso.nivel}</p>
                     <p>Turno: ${curso.turno}</p> 
-                    <p>Profesor: ${curso.profesor.nombre} ${curso.profesor.apellido}</p> 
+                    <p>Profesor: <strong>${curso.profesor.dni}</strong> | ${curso.profesor.nombre} ${curso.profesor.apellido}</p> 
                 </div>
             </div>
         </div>

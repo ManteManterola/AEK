@@ -32,7 +32,7 @@ public class ModeloProfesor extends Conector{
 	public Profesor get(int id) {
 		
 		try {
-			PreparedStatement pst = this.conexion.prepareStatement("SELECT * FROM profesores WHERE id=?");
+			PreparedStatement pst = this.conexion.prepareStatement("SELECT * FROM PROFESORES WHERE id=?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 			
@@ -87,7 +87,7 @@ public class ModeloProfesor extends Conector{
 	public int update(Profesor profesor) {
 		
 		try {
-			PreparedStatement pst = this.conexion.prepareStatement("UPDATE profesores SET dni = ?, nombre = ?, apellido = ? WHERE id = ?");
+			PreparedStatement pst = this.conexion.prepareStatement("UPDATE PROFESORES SET dni = ?, nombre = ?, apellido = ? WHERE id = ?");
 			pst.setString(1, profesor.getDni());
 			pst.setString(2, profesor.getNombre());
 			pst.setString(3, profesor.getApellido());

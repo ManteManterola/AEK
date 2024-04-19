@@ -10,7 +10,7 @@ public class ModeloCurso extends Conector{
 
 	public ArrayList<Curso> getAll () {
 		ArrayList<Curso> cursos = new ArrayList<>();
-		String sql = "SELECT * FROM cursos";
+		String sql = "SELECT * FROM CURSOS";
 		
 		try {
 			ResultSet rs = conexion.createStatement().executeQuery(sql);
@@ -34,7 +34,7 @@ public class ModeloCurso extends Conector{
 	
 	public Curso get(int id) {
 		try {
-			PreparedStatement pst = this.conexion.prepareStatement("SELECT * FROM cursos WHERE id=?");
+			PreparedStatement pst = this.conexion.prepareStatement("SELECT * FROM CURSOS WHERE id=?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 			
@@ -58,7 +58,7 @@ public class ModeloCurso extends Conector{
 	public int update(Curso curso) {
 		try {
 			
-			PreparedStatement pst = this.conexion.prepareStatement("UPDATE cursos SET nivel = ?, turno = ?, idProfesor = ? WHERE id = ?");
+			PreparedStatement pst = this.conexion.prepareStatement("UPDATE CURSOS SET nivel = ?, turno = ?, idProfesor = ? WHERE id = ?");
 			pst.setString(1, curso.getNivel());
 			pst.setString(2, curso.getTurno());
 			pst.setInt(3, curso.getProfesor().getId());
@@ -73,7 +73,7 @@ public class ModeloCurso extends Conector{
 	}
 	
 	public void delete(int id) {
-		String sql = "DELETE FROM cursos WHERE id=?";
+		String sql = "DELETE FROM CURSOS WHERE id=?";
 		
 		try {
 			PreparedStatement pst = conexion.prepareStatement(sql);
@@ -86,7 +86,7 @@ public class ModeloCurso extends Conector{
 	}
 	
 	public void insert(Curso curso) {
-		String sql = "INSERT INTO cursos (nivel,turno,idProfesor) VALUES (?,?,?)";
+		String sql = "INSERT INTO CURSOS (nivel,turno,idProfesor) VALUES (?,?,?)";
 		
 		PreparedStatement pst;
 		try {
