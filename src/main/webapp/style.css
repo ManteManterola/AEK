@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+}
+
+tr {
+    background-color: aqua;
+}
+
+svg {
+    color: rgb(255, 128, 64);
+}
+
+aside {
+    height: 955px;
+}
+
+li:hover {
+    background-color:rgb(255, 193, 122);
+  }
+
+  input {
+  	margin: 0;
+  }
+  
+.naranja {
+	 background-color:rgb(255, 193, 122);
+}
