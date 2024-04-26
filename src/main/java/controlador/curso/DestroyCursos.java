@@ -1,4 +1,4 @@
-package controlador;
+package controlador.curso;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloProfesor;
+import modelo.ModeloCurso;
 
 /**
- * Servlet implementation class DestroyProfesores
+ * Servlet implementation class DestroyCursos
  */
-@WebServlet("/DestroyProfesores")
-public class DestroyProfesores extends HttpServlet {
+@WebServlet("/DestroyCursos")
+public class DestroyCursos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DestroyProfesores() {
+	public DestroyCursos() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,13 +33,13 @@ public class DestroyProfesores extends HttpServlet {
 		// recibir la id
 		int id = Integer.parseInt(request.getParameter("id"));
 
-		// eliminar el profesor
-		ModeloProfesor modeloProfesor = new ModeloProfesor();
-		modeloProfesor.deleteProfesor(id);
+		// eliminar el curso
+		ModeloCurso modeloCurso = new ModeloCurso();
+		modeloCurso.delete(id);
 
 		// abrir lo que quiera, en mi caso inicio
 		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexProfesores");
+		response.sendRedirect("IndexCursos");
 	}
 
 	/**
