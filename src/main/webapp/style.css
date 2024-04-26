@@ -1,0 +1,31 @@
+a {
+    text-decoration: none;
+}
+
+
+svg {
+    color: rgb(255, 128, 64);
+}
+
+aside {
+    height: 955px;
+}
+
+li:hover {
+    background-color:rgb(255, 193, 122);
+  }
+
+  input {
+  	margin: 0;
+  }
+  
+.naranja {
+	 background-color:rgb(255, 193, 122);
+}
+
+@media (max-width: 750px) {
+    .desaparece {
+        display: none; 
+    }
+}
+

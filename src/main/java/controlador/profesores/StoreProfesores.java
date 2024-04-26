@@ -1,4 +1,4 @@
-package controlador;
+package controlador.profesores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloCurso;
+import modelo.ModeloProfesor;
+import modelo.Profesor;
 
 /**
- * Servlet implementation class DestroyCursos
+ * Servlet implementation class StoreProfesores
  */
-@WebServlet("/DestroyCursos")
-public class DestroyCursos extends HttpServlet {
+@WebServlet("/StoreProfesores")
+public class StoreProfesores extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DestroyCursos() {
+	public StoreProfesores() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -30,16 +31,7 @@ public class DestroyCursos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// recibir la id
-		int id = Integer.parseInt(request.getParameter("id"));
 
-		// eliminar el curso
-		ModeloCurso modeloCurso = new ModeloCurso();
-		modeloCurso.delete(id);
-
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexCursos");
 	}
 
 	/**
@@ -48,8 +40,23 @@ public class DestroyCursos extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// recibir los datos del profesor
+		String dni = request.getParameter("dni");
+		String nombre = request.getParameter("nombre");
+		String apellido = request.getParameter("apellido");
+
+		// almacenar la tarea en la BBDD
+		Profesor profesor = new Profesor();
+		profesor.setDni(dni);
+		profesor.setNombre(nombre);
+		profesor.setApellido(apellido);
+
+		ModeloProfesor modeloProfesor = new ModeloProfesor();
+		modeloProfesor.insertarProfesor(profesor);
+
+		// abrir lo que quiera, en mi caso inicio
+		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
+		response.sendRedirect("IndexProfesores");
 	}
 
 }
