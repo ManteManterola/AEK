@@ -20,7 +20,7 @@
         <div class="row">
             <nav class="navbar bg-dark navbar-expand-lg ">
                 <div class="container-fluid">
-                     <a href="landingPage.jsp"><img src="imgs/logo-aek.png" width="25%" height="35%" alt="logo-aek"></a>
+                     <a href="landingPage.jsp"><img src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
                 </div>
             </nav>
         </div>

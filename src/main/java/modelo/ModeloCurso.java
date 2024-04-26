@@ -104,5 +104,7 @@ public class ModeloCurso extends Conector{
 		
 		
 	}
+
+	
 	
 }
