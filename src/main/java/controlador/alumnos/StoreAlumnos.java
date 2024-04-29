@@ -1,4 +1,4 @@
-package controlador.profesores;
+package controlador.alumnos;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloProfesor;
-import modelo.Profesor;
+import modelo.Alumno;
+import modelo.ModeloAlumno;
+import modelo.ModeloCurso;
 
 /**
- * Servlet implementation class StoreProfesores
+ * Servlet implementation class StoreAlumnos
  */
-@WebServlet("/StoreProfesores")
-public class StoreProfesores extends HttpServlet {
+@WebServlet("/StoreAlumnos")
+public class StoreAlumnos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public StoreProfesores() {
+	public StoreAlumnos() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,6 +34,7 @@ public class StoreProfesores extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	/**
@@ -41,23 +43,28 @@ public class StoreProfesores extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// recibir los datos del profesor
+		// recibir los datos del alumno
 		String dni = request.getParameter("dni");
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
+		int edad = Integer.parseInt(request.getParameter("edad"));
+		int idCurso = Integer.parseInt(request.getParameter("idCurso"));
 
-		// almacenar la tarea en la BBDD
-		Profesor profesor = new Profesor();
-		profesor.setDni(dni);
-		profesor.setNombre(nombre);
-		profesor.setApellido(apellido);
+		// guardar en la BBDD
+		ModeloCurso modeloCurso = new ModeloCurso();
+		Alumno alumno = new Alumno();
+		alumno.setDni(dni);
+		alumno.setNombre(nombre);
+		alumno.setApellido(apellido);
+		alumno.setEdad(edad);
+		alumno.setCurso(modeloCurso.get(idCurso));
 
-		ModeloProfesor modeloProfesor = new ModeloProfesor();
-		modeloProfesor.insertarProfesor(profesor);
+		ModeloAlumno modeloAlumno = new ModeloAlumno();
+		modeloAlumno.insert(alumno);
 
 		// abrir lo que quiera, en mi caso inicio
 		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexProfesores");
+		response.sendRedirect("IndexAlumnos");
 	}
 
 }

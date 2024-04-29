@@ -39,8 +39,7 @@ public class EditCursos extends HttpServlet {
 		//enviar el curso a la vista
 		request.setAttribute("curso", curso);
 		
-		//abrir vista
-		request.getRequestDispatcher("editCurso.jsp").forward(request, response);
+		
 	}
 
 	/**

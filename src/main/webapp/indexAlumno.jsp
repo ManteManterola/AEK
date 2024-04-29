@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Profesores</title>
+    <title>Alumnos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -46,7 +46,7 @@
                         </li>
                     </a>
 
-                    <a href="IndexAlumnos">
+                    <a href="">
                         <li class="list-group-item"><span class="desaparece">Alumnos</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-person-fill" viewBox="0 0 16 16">
@@ -91,11 +91,11 @@
 
                 </ul>
             </aside>
-
+            
             <div class="col-10 mt-2">
 
-                <!-- boton crear Profesor -->
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#crearProfesor">
+                <!-- boton crear Alumno -->
+                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#crearAlumno">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                         class="bi bi-plus-square-fill" viewBox="0 0 16 16">
                         <path
@@ -103,7 +103,7 @@
                     </svg>
                 </button>
 
-                <div class="modal fade" id="crearProfesor" tabindex="-1" aria-labelledby="createModalLabel"
+                <div class="modal fade" id="crearAlumno" tabindex="-1" aria-labelledby="createModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -113,12 +113,12 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form action="StoreProfesores" method="post">
+                                <form action="StoreAlumnos" method="post">
                                     <p>DNI: <input type="text" name="dni" /></p>
                                     <p>Nombre: <input type="text" name="nombre" /></p>
                                     <p>Apellido: <input type="text" name="apellido" /></p>
-                                    
-                                    
+                                    <p>Edad: <input type="text" name="edad" /></p>
+                                    <p>idCurso: <input type="text" name="idCurso" /></p>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -132,8 +132,8 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Atributos -->
+                
+                  <!-- Atributos -->
                 <table class="table">
                     <thead>
                         <tr>
@@ -141,23 +141,27 @@
                             <th scope="col">Dni</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Apellido</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Curso</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
 
                         <!-- Datos -->
-                        <c:forEach items="${profesores}" var="profesor">
+                        <c:forEach items="${alumnos}" var="alumno">
                             <tr>
-                                <td>${profesor.id}</td>
-                                <td>${profesor.dni}</td>
-                                <td>${profesor.nombre}</td>
-                                <td>${profesor.apellido}</td>
+                                <td>${alumno.id}</td>
+                                <td>${alumno.dni}</td>
+                                <td>${alumno.nombre}</td>
+                                <td>${alumno.apellido}</td>
+                                <td>${alumno.edad}</td>
+                                <td>${alumno.curso.nivel}</td>
                                 <td>
-
-                                    <!-- boton ver -->
+                                
+                                 <!-- boton ver -->
                                     <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                        data-bs-target="#verProfesor${profesor.id}">
+                                        data-bs-target="#verAlumno${alumno.id}">
 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
@@ -168,7 +172,7 @@
 
                                     </button>
 
-                                    <div class="modal fade" id="verProfesor${profesor.id}" tabindex="-1"
+                                    <div class="modal fade" id="verAlumno${alumno.id}" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -180,9 +184,11 @@
                                                 <div class="modal-body">
 
                                                     <ul class="list-group list-group-flush">
-                                                        <li class="list-group-item"> <strong>DNI:</strong> ${profesor.dni}</li>
-                                                        <li class="list-group-item"><strong>Nombre:</strong> ${profesor.nombre}</li>
-                                                        <li class="list-group-item"><strong>Apellido:</strong> ${profesor.apellido}</li>
+                                                        <li class="list-group-item"> <strong>DNI:</strong> ${alumno.dni}</li>
+                                                        <li class="list-group-item"><strong>Nombre:</strong> ${alumno.nombre}</li>
+                                                        <li class="list-group-item"><strong>Apellido:</strong> ${alumno.apellido}</li>
+                                                        <li class="list-group-item"><strong>Edad:</strong> ${alumno.edad}</li>
+                                                        <li class="list-group-item"><strong>Curso:</strong> ${alumno.curso.nivel} | ${alumno.curso.turno} | ${alumno.curso.profesor.nombre} </li>
                                                     </ul>
                                                 </div>
 
@@ -192,7 +198,7 @@
 
                                     <!-- boton editar -->
                                     <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                                        data-bs-target="#editarModal${profesor.id}">
+                                        data-bs-target="#editarAlumno${alumno.id}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -202,7 +208,7 @@
                                         </svg>
                                     </button>
 
-                                    <div class="modal fade" id="editarModal${profesor.id}" tabindex="-1"
+                                    <div class="modal fade" id="editarAlumno${alumno.id}" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -212,14 +218,22 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="UpdateProfesores" method="POST">
-                                                        <input type="hidden" name="id" value="${profesor.id}" />
+                                                    <form action="UpdateAlumnos" method="POST">
+                                                        <input type="hidden" name="id" value="${alumno.id}" />
                                                         <p class="mb-0"> DNI:</p> <input type="text" name="dni"
-                                                            value="${profesor.dni}" />
+                                                            value="${alumno.dni}" />
+                                                            
                                                         <p class="mb-0"> Nombre:</p> <input type="text" name="nombre"
-                                                            value="${profesor.nombre}" />
+                                                            value="${alumno.nombre}" />
+                                                            
                                                         <p class="mb-0"> Apellido :</p> <input type="text"
-                                                            name="apellido" value="${profesor.apellido}" />
+                                                            name="apellido" value="${alumno.apellido}" />
+                                                           
+                                                        <p class="mb-0"> Edad :</p> <input type="text"
+                                                            name="edad" value="${alumno.edad}" />
+                                                            
+                                                        <p class="mb-0"> idCurso :</p> <input type="text"
+                                                            name="idCurso" value="${alumno.curso.id}" />
 
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -236,7 +250,7 @@
 
 
                                     <!-- boton eliminar -->
-                                    <a class="btn btn-light" href="DestroyProfesores?id=${profesor.id}"><svg
+                                    <a class="btn btn-light" href="DestroyAlumnos?id=${alumno.id}"><svg
                                             xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                                             fill="currentColor" class="bi bi-backspace-reverse" viewBox="0 0 16 16">
                                             <path
