@@ -39,8 +39,7 @@ public class ShowProfesores extends HttpServlet {
 		//enviar profesor a la vista
 		request.setAttribute("profesor", profesor);
 		
-		//abrir vista
-		request.getRequestDispatcher("showProfesor.jsp").forward(request, response);
+		
 	}
 
 	/**

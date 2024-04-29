@@ -48,7 +48,7 @@
                         </li>
                     </a>
 
-                    <a href="">
+                    <a href="IndexAlumnos">
                         <li class="list-group-item"><span class="desaparece">Alumnos</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-person-fill" viewBox="0 0 16 16">
