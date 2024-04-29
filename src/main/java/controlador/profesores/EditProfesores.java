@@ -1,4 +1,4 @@
-package controlador;
+package controlador.profesores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,16 +11,16 @@ import modelo.ModeloProfesor;
 import modelo.Profesor;
 
 /**
- * Servlet implementation class ShowProfesores
+ * Servlet implementation class EditProfesores
  */
-@WebServlet("/ShowProfesores")
-public class ShowProfesores extends HttpServlet {
+@WebServlet("/EditProfesores")
+public class EditProfesores extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowProfesores() {
+    public EditProfesores() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,8 +29,8 @@ public class ShowProfesores extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//recibir id
-		int id = Integer.parseInt(request.getParameter("id")); 
+		//recibir la id
+		int id = Integer.parseInt(request.getParameter("id"));
 		
 		//conseguir el profesor
 		ModeloProfesor modeloProfesor = new ModeloProfesor();
@@ -39,8 +39,7 @@ public class ShowProfesores extends HttpServlet {
 		//enviar profesor a la vista
 		request.setAttribute("profesor", profesor);
 		
-		//abrir vista
-		request.getRequestDispatcher("showProfesor.jsp").forward(request, response);
+	
 	}
 
 	/**

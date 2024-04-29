@@ -1,4 +1,4 @@
-package controlador;
+package controlador.curso;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Curso;
+import modelo.ModeloCurso;
 import modelo.ModeloProfesor;
-import modelo.Profesor;
 
 /**
- * Servlet implementation class StoreProfesores
+ * Servlet implementation class UpdateCursos
  */
-@WebServlet("/StoreProfesores")
-public class StoreProfesores extends HttpServlet {
+@WebServlet("/UpdateCursos")
+public class UpdateCursos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public StoreProfesores() {
+	public UpdateCursos() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -31,7 +32,7 @@ public class StoreProfesores extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -40,23 +41,26 @@ public class StoreProfesores extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// recibir los datos del profesor
-		String dni = request.getParameter("dni");
-		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido");
+		// recibir los datos de curso
+		int id = Integer.parseInt(request.getParameter("id"));
+		String nivel = request.getParameter("nivel");
+		String turno = request.getParameter("turno");
+		int idProfesor = Integer.parseInt(request.getParameter("idProfesor"));
 
-		// almacenar la tarea en la BBDD
-		Profesor profesor = new Profesor();
-		profesor.setDni(dni);
-		profesor.setNombre(nombre);
-		profesor.setApellido(apellido);
-
+		// almacenar el curso en la bbdd
 		ModeloProfesor modeloProfesor = new ModeloProfesor();
-		modeloProfesor.insertarProfesor(profesor);
+		Curso curso = new Curso();
+		curso.setId(id);
+		curso.setNivel(nivel);
+		curso.setTurno(turno);
+		curso.setProfesor(modeloProfesor.get(idProfesor));
+
+		ModeloCurso modeloCurso = new ModeloCurso();
+		modeloCurso.update(curso);
 
 		// abrir lo que quiera, en mi caso inicio
 		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexProfesores");
+		response.sendRedirect("IndexCursos");
 	}
 
 }

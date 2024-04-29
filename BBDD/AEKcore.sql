@@ -25,7 +25,7 @@ id INT,
 dni VARCHAR(9),
 nombre VARCHAR(25),
 apellido VARCHAR(25),
-edad TINYINT,
+edad INT,
 idCurso INT
 );
 

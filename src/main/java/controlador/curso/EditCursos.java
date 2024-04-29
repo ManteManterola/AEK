@@ -1,4 +1,4 @@
-package controlador;
+package controlador.curso;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,16 +11,16 @@ import modelo.Curso;
 import modelo.ModeloCurso;
 
 /**
- * Servlet implementation class ShowCursos
+ * Servlet implementation class EditCursos
  */
-@WebServlet("/ShowCursos")
-public class ShowCursos extends HttpServlet {
+@WebServlet("/EditCursos")
+public class EditCursos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowCursos() {
+    public EditCursos() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,18 +29,17 @@ public class ShowCursos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// recibir id
+		//recibir la id
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		//conseguir el curso
 		ModeloCurso modeloCurso = new ModeloCurso();
 		Curso curso = modeloCurso.get(id);
 		
-		//enviar curso a la vista
+		//enviar el curso a la vista
 		request.setAttribute("curso", curso);
 		
-		//abrir vista
-		request.getRequestDispatcher("showCurso.jsp").forward(request, response);
+		
 	}
 
 	/**

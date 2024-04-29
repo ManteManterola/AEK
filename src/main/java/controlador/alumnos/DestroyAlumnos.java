@@ -1,28 +1,25 @@
-package controlador;
+package controlador.alumnos;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.ModeloProfesor;
-import modelo.Profesor;
+import modelo.ModeloAlumno;
 
 /**
- * Servlet implementation class IndexProfesores
+ * Servlet implementation class DestroyAlumnos
  */
-@WebServlet("/IndexProfesores")
-public class IndexProfesores extends HttpServlet {
+@WebServlet("/DestroyAlumnos")
+public class DestroyAlumnos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexProfesores() {
+    public DestroyAlumnos() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,10 +28,17 @@ public class IndexProfesores extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Profesor> profesores = new ModeloProfesor().getAll();
 		
-		request.setAttribute("profesores", profesores);
-		request.getRequestDispatcher("indexProfesor.jsp").forward(request, response);
+		// recibir la id
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		//eliminar alumno
+		ModeloAlumno modeloAlumno = new ModeloAlumno();
+		modeloAlumno.delete(id);
+		
+		// abrir lo que quiera, en mi caso inicio
+		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
+				response.sendRedirect("IndexAlumnos");
 	}
 
 	/**

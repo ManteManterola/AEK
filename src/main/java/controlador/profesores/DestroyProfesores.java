@@ -1,4 +1,4 @@
-package controlador;
+package controlador.profesores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -30,12 +30,22 @@ public class DestroyProfesores extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// recibir la id
-		int id = Integer.parseInt(request.getParameter("id"));
-
-		// eliminar el profesor
 		ModeloProfesor modeloProfesor = new ModeloProfesor();
-		modeloProfesor.deleteProfesor(id);
+
+		// recibir la id
+		int idProfesor = Integer.parseInt(request.getParameter("id"));
+		if (modeloProfesor.imparteAlgunCurso(idProfesor)) {
+			
+			request.getRequestDispatcher("error.jsp").forward(request, response);
+		}
+		
+		else {
+			
+			// eliminar el profesor
+			modeloProfesor.deleteProfesor(idProfesor);
+		}
+
+		
 
 		// abrir lo que quiera, en mi caso inicio
 		// como ya tengo un controlador que abra el inicio redirijo a ese controlador

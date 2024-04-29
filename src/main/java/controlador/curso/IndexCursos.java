@@ -1,26 +1,30 @@
-package controlador;
+package controlador.curso;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Curso;
+import modelo.ModeloCurso;
 import modelo.ModeloProfesor;
 import modelo.Profesor;
 
 /**
- * Servlet implementation class EditProfesores
+ * Servlet implementation class IndexCursos
  */
-@WebServlet("/EditProfesores")
-public class EditProfesores extends HttpServlet {
+@WebServlet("/IndexCursos")
+public class IndexCursos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditProfesores() {
+    public IndexCursos() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,18 +33,11 @@ public class EditProfesores extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//recibir la id
-		int id = Integer.parseInt(request.getParameter("id"));
 		
-		//conseguir el profesor
-		ModeloProfesor modeloProfesor = new ModeloProfesor();
-		Profesor profesor = modeloProfesor.get(id);
+		ArrayList<Curso> cursos = new ModeloCurso().getAll();
 		
-		//enviar profesor a la vista
-		request.setAttribute("profesor", profesor);
-		
-		//abrir vista
-		request.getRequestDispatcher("editProfesor.jsp").forward(request, response);
+		request.setAttribute("cursos", cursos);
+		request.getRequestDispatcher("indexCurso.jsp").forward(request, response);
 	}
 
 	/**

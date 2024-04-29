@@ -7,7 +7,16 @@ public class Alumno {
 	private String nombre;
 	private String apellido;
 	private int edad;
+	private Curso curso;
 	
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 
 	public int getId() {
 		return id;
