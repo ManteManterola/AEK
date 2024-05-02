@@ -153,17 +153,18 @@
                         </li>
                     </a>
 
-                    <a href="#">
-                        <li class="list-group-item activo"><span class="desaparece">Alumnos</span>
+
+
+                    <a href="IndexAlumnos">
+                        <li class="list-group-item"><span class="desaparece">Alumnos</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                             </svg>
                         </li>
                     </a>
-
-                    <a href="">
-                        <li class="list-group-item hoverable"><span class="desaparece">Seguimiento</span>
+                    <a href="IndexSeguimientos">
+                        <li class="list-group-item"><span class="desaparece">Seguimiento</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -298,17 +299,13 @@
                                                 <div class="modal-body">
 
                                                     <ul class="list-group list-group-flush">
-                                                        <li class="list-group-item"><strong>DNI:</strong>
-                                                            ${alumno.dni}</li>
-                                                        <li class="list-group-item"><strong>Nombre:</strong>
-                                                            ${alumno.nombre}</li>
-                                                        <li class="list-group-item"><strong>Apellido:</strong>
-                                                            ${alumno.apellido}</li>
-                                                        <li class="list-group-item"><strong>Edad:</strong>
-                                                            ${alumno.edad}</li>
-                                                        <li class="list-group-item"><strong>Curso:</strong>
-                                                            ${alumno.curso.nivel} | ${alumno.curso.turno} |
-                                                            ${alumno.curso.profesor.nombre}</li>
+
+                                                        <li class="list-group-item"> <strong>DNI:</strong> ${alumno.dni}</li>
+                                                        <li class="list-group-item"><strong>Nombre:</strong> ${alumno.nombre}</li>
+                                                        <li class="list-group-item"><strong>Apellido:</strong> ${alumno.apellido}</li>
+                                                        <li class="list-group-item"><strong>Edad:</strong> ${alumno.edad}</li>
+                                                        <li class="list-group-item"><strong>Curso:</strong> ${alumno.curso.nivel} | ${alumno.curso.turno}</li>
+
                                                     </ul>
                                                 </div>
 

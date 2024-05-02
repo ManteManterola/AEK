@@ -54,9 +54,8 @@
                             </svg>
                         </li>
                     </a>
-
-                    <a href="">
-                        <li class="list-group-item hoverable"><span class="desaparece">Seguimiento</span>
+                    <a href="IndexSeguimientos">
+                        <li class="list-group-item"><span class="desaparece">Seguimiento</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
