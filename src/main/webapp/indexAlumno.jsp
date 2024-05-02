@@ -243,7 +243,7 @@
 										Apellido: <input type="text" name="apellido" />
 									</p>
 									<p>
-										Edad: <input type="text" name="edad" />
+										Edad: <input type="number" name="edad" />
 									</p>
 
 
@@ -371,7 +371,7 @@
 														<input type="text" name="edad" value="${alumno.edad}" />
 
 														<p class="mb-0">idCurso :</p>
-														<input type="text" name="idCurso"
+														<input type="number" name="idCurso"
 															value="${alumno.curso.id}" />
 
 														<div class="modal-footer">
