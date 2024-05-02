@@ -3,6 +3,7 @@ package modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 
 public class ModeloAlumno extends Conector {
@@ -33,15 +34,15 @@ public class ModeloAlumno extends Conector {
 		}
 		return alumnos;
 	}
-	
+
 	public ArrayList<Alumno> alumnosSinSeguimiento() {
 		ArrayList<Alumno> alumnos = new ArrayList<>();
 		String sql = "CALL ALUMNOSSINSEGUIMIENTO()";
-		
+
 		try {
 			ResultSet rs = conexion.createStatement().executeQuery(sql);
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				Alumno alumno = new Alumno();
 
 				alumno.setId(rs.getInt("id"));
@@ -89,30 +90,23 @@ public class ModeloAlumno extends Conector {
 
 			PreparedStatement pst = this.conexion.prepareStatement(
 					"UPDATE ALUMNOS SET dni = ?, nombre = ?, apellido = ?, edad = ?, idCurso = ? WHERE id = ?");
-			PreparedStatement pst2 = this.conexion
-					.prepareStatement("UPDATE ALUMNOS SET dni = ?, nombre = ?, apellido = ?, edad = ? WHERE id = ?");
 
 			pst.setString(1, alumno.getDni());
 			pst.setString(2, alumno.getNombre());
 			pst.setString(3, alumno.getApellido());
 			pst.setInt(4, alumno.getEdad());
-			pst.setInt(5, alumno.getCurso().getId());
+			
+			if (alumno.getCurso() != null) {
+				pst.setInt(5, alumno.getCurso().getId());
+			} else {
+				pst.setNull(5, Types.NULL);
+			}
+
 			pst.setInt(6, alumno.getId());
-			int curso = alumno.getCurso().getId();
 
-			if (curso == 0) {
-
-				return pst2.executeUpdate();
-
-			}
-
-			else {
-				pst.setInt(6, alumno.getId());
-				return pst.executeUpdate();
-			}
+			return pst.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return 0;
 		}
