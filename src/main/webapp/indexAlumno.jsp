@@ -59,7 +59,7 @@
                                                 <td>${alumnoNuevo.apellido}</td>
                                                 <td>${alumnoNuevo.edad}</td>
                                                 <td>
-                                                    <button class="btn naranja btn-warning btn-sm" data-bs-target="#modalCursos${alumnoNuevo.id}" data-bs-toggle="modal">curso</button>
+                                                    <button class="btn naranja btn-warning btn-sm" data-bs-target="#modalCursos${alumnoNuevo.id}" data-bs-toggle="modal">CURSOS</button>
                                                     
                                                    
                                                 </td>
@@ -115,7 +115,7 @@
 		                              </div>
 		                              <div class="modal-footer">
 		                                  <button class="btn btn-primary" data-bs-target="#modalAlumnos"
-		                                      data-bs-toggle="modal">Guardar y volver</button>
+		                                      data-bs-toggle="modal">Volver</button>
 		                              </div>
 		                          </div>
 		                      </div>
