@@ -48,7 +48,7 @@ public class StoreAlumnos extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
 		int edad = Integer.parseInt(request.getParameter("edad"));
-		int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+		
 
 		// guardar en la BBDD
 		ModeloCurso modeloCurso = new ModeloCurso();
@@ -57,7 +57,7 @@ public class StoreAlumnos extends HttpServlet {
 		alumno.setNombre(nombre);
 		alumno.setApellido(apellido);
 		alumno.setEdad(edad);
-		alumno.setCurso(modeloCurso.get(idCurso));
+		
 
 		ModeloAlumno modeloAlumno = new ModeloAlumno();
 		modeloAlumno.insert(alumno);
