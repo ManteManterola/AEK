@@ -11,8 +11,8 @@ aside {
     height: 955px;
 }
 
-li:hover {
-    background-color:rgb(255, 193, 122);
+.hoverable:hover {
+    background-color:rgb(255, 236, 200);
   }
 
   input {
@@ -22,6 +22,12 @@ li:hover {
 .naranja {
 	 background-color:rgb(255, 193, 122);
 }
+
+.activo {
+	 background-color:rgb(255, 193, 122);
+}
+
+
 
 @media (max-width: 750px) {
     .desaparece {

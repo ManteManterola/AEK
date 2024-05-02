@@ -34,7 +34,7 @@
                 <!-- Lista del resto de campos -->
                 <ul class="list-group">
                     <a href="IndexProfesores">
-                        <li class="list-group-item"> <span class="desaparece">Profesores</span>
+                        <li class="list-group-item activo"> <span class="desaparece">Profesores</span>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
@@ -47,7 +47,7 @@
                     </a>
 
                     <a href="IndexAlumnos">
-                        <li class="list-group-item"><span class="desaparece">Alumnos</span>
+                        <li class="list-group-item hoverable"><span class="desaparece">Alumnos</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
@@ -56,7 +56,7 @@
                     </a>
 
                     <a href="">
-                        <li class="list-group-item"><span class="desaparece">Seguimiento</span>
+                        <li class="list-group-item hoverable"><span class="desaparece">Seguimiento</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-journal-bookmark-fill" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -70,7 +70,7 @@
                     </a>
 
                     <a href="">
-                        <li class="list-group-item"><span class="desaparece">Programas</span>
+                        <li class="list-group-item hoverable"><span class="desaparece">Programas</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-book-half" viewBox="0 0 16 16">
                                 <path
@@ -80,7 +80,7 @@
                     </a>
 
                     <a href="IndexCursos">
-                        <li class="list-group-item"><span class="desaparece">Cursos</span>
+                        <li class="list-group-item hoverable"><span class="desaparece">Cursos</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-folder-fill" viewBox="0 0 16 16">
                                 <path
