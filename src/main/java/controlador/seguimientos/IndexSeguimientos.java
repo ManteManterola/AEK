@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.Alumno;
+import modelo.ModeloAlumno;
 import modelo.ModeloSeguimiento;
 import modelo.Seguimiento;
 
@@ -33,7 +35,9 @@ public class IndexSeguimientos extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<Seguimiento> seguimientos = new ModeloSeguimiento().getAll();
+		ArrayList<Alumno> alumnosSinSeguimiento = new ModeloAlumno().alumnosSinSeguimiento();
 		
+		request.setAttribute("alumnosSinSeguimiento", alumnosSinSeguimiento);
 		request.setAttribute("seguimientos", seguimientos);
 		request.getRequestDispatcher("indexSeguimiento.jsp").forward(request, response);
 	}

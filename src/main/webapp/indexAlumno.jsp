@@ -46,7 +46,7 @@
                         </li>
                     </a>
 
-                    <a href="">
+                    <a href="IndexAlumnos">
                         <li class="list-group-item"><span class="desaparece">Alumnos</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-person-fill" viewBox="0 0 16 16">
@@ -188,7 +188,7 @@
                                                         <li class="list-group-item"><strong>Nombre:</strong> ${alumno.nombre}</li>
                                                         <li class="list-group-item"><strong>Apellido:</strong> ${alumno.apellido}</li>
                                                         <li class="list-group-item"><strong>Edad:</strong> ${alumno.edad}</li>
-                                                        <li class="list-group-item"><strong>Curso:</strong> ${alumno.curso.nivel} | ${alumno.curso.turno} | ${alumno.curso.profesor.nombre} </li>
+                                                        <li class="list-group-item"><strong>Curso:</strong> ${alumno.curso.nivel} | ${alumno.curso.turno}</li>
                                                     </ul>
                                                 </div>
 

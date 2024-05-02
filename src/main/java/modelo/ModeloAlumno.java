@@ -29,10 +29,33 @@ public class ModeloAlumno extends Conector {
 				alumnos.add(alumno);
 			}
 		} catch (SQLException e) {
-
 			e.printStackTrace();
 		}
+		return alumnos;
+	}
+	
+	public ArrayList<Alumno> alumnosSinSeguimiento() {
+		ArrayList<Alumno> alumnos = new ArrayList<>();
+		String sql = "CALL ALUMNOSSINSEGUIMIENTO()";
+		
+		try {
+			ResultSet rs = conexion.createStatement().executeQuery(sql);
+			
+			while(rs.next()) {
+				Alumno alumno = new Alumno();
 
+				alumno.setId(rs.getInt("id"));
+				alumno.setDni(rs.getString("dni"));
+				alumno.setNombre(rs.getString("nombre"));
+				alumno.setApellido(rs.getString("apellido"));
+				alumno.setEdad(rs.getInt("edad"));
+				alumno.setCurso(modeloCurso.get(rs.getInt("idCurso")));
+
+				alumnos.add(alumno);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return alumnos;
 	}
 	

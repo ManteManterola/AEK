@@ -15,7 +15,7 @@ public class ModeloSeguimiento extends Conector{
 		try {
 			ResultSet rs = conexion.createStatement().executeQuery(sql);
 			
-			while (rs.next()) {
+			while(rs.next()) {
 				Seguimiento seguimiento = new Seguimiento();
 				
 				seguimiento.setFaltas(rs.getInt("faltas"));
@@ -30,6 +30,8 @@ public class ModeloSeguimiento extends Conector{
 		
 		return seguimientos;
 	}
+	
+
 	
 	public void insert(Seguimiento seguimiento) {
 		String sql = "INSERT INTO SEGUIMIENTOS (faltas,participacion,rendimiento,idAlumno) VALUES (?,?,?,?)";
