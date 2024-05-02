@@ -39,11 +39,14 @@ public class IndexAlumnos extends HttpServlet {
 			throws ServletException, IOException {
 
 		ArrayList<Alumno> alumnos = new ModeloAlumno().getAll();
-
-		request.setAttribute("alumnos", alumnos);
+		ArrayList<Alumno> alumnosNuevos = new ModeloAlumno().getAlumnosNuevos();
 		ArrayList<Curso> cursos = new ModeloCurso().getAll();
-
+		
+		request.setAttribute("alumnos", alumnos);
+		request.setAttribute("alumnosNuevos", alumnosNuevos);
 		request.setAttribute("cursos", cursos);
+
+		
 		request.getRequestDispatcher("indexAlumno.jsp").forward(request, response);
 	}
 

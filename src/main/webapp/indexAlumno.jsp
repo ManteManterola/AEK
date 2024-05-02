@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!doctype html>
 <html lang="en">
@@ -20,7 +20,114 @@
         <div class="row">
             <nav class="navbar bg-dark navbar-expand-lg ">
                 <div class="container-fluid">
-                     <a href="landingPage.jsp"><img src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
+                    <a href="landingPage.jsp"><img src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
+
+
+                    <!-- Boton de matriculacion -->
+
+                    <button class="btn btn-outline-warning" data-bs-target="#modalAlumnos"
+                        data-bs-toggle="modal">MATRICULA</button>
+
+                    <div class="modal fade" id="modalAlumnos" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="modalAlumnos">Alumnos sin matricular</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+
+                                        <tr>
+                                            <th scope="">Id</th>
+                                            <th scope="col">Dni</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Apellido</th>
+                                            <th scope="col">Edad</th>
+                                            <th scope="col">Matricular</th>
+                                            <th></th>
+                                        </tr>
+
+                                        <!-- Datos -->
+                                        <c:forEach items="${alumnosNuevos}" var="alumnoNuevo">
+                                            <tr>
+                                                <td>${alumnoNuevo.id}</td>
+                                                <td>${alumnoNuevo.dni}</td>
+                                                <td>${alumnoNuevo.nombre}</td>
+                                                <td>${alumnoNuevo.apellido}</td>
+                                                <td>${alumnoNuevo.edad}</td>
+                                                <td>
+                                                    <button class="btn naranja btn-warning btn-sm" data-bs-target="#modalCursos${alumnoNuevo.id}" data-bs-toggle="modal">curso</button>
+                                                    
+                                                   
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </table>
+                                </div>
+                                <div class="modal-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <c:forEach items="${alumnosNuevos}" var="alumnoNuevo">
+	                    <!-- modal Cursos -->
+	                     <div class="modal fade" id="modalCursos${alumnoNuevo.id}" aria-hidden="true"
+		                      aria-labelledby="modalCursos" tabindex="-1">
+		                      <div class="modal-dialog modal-dialog-centered">
+		                          <div class="modal-content">
+		                              <div class="modal-header">
+		                                  <h1 class="modal-title fs-5"  id="modalCursos${alumnoNuevo.id}">Cursos</h1>
+		                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+		                                      aria-label="Close"></button>
+		                              </div>
+		                              <div class="modal-body">
+		
+		                                   <table class="table">
+		
+		                                      <tr>
+		                                          <th scope="">Id</th>
+		                       				    <th scope="col">Nivel</th>
+		                         				    <th scope="col">Turno</th>
+		                                          <th scope="col">Profesor</th>
+		                                          <th></th>
+		                                      </tr>
+		
+		                                      <!-- Datos -->
+		                                      <c:forEach items="${cursos}" var="curso">
+		                                          <tr>
+		                                              <td>${curso.id}</td>
+		                         	                    <td>${curso.nivel}</td>
+		                                              <td>${curso.turno}</td>
+		                                              <td>${curso.profesor.nombre}</td>
+		                                              <td>
+		                                              	
+		                                              <a href="AsignCurso?idAlumno=${alumnoNuevo.id}&idCurso=${curso.id}">Asignar</a>
+		                                              	
+		                                                  
+		                                              </td>
+		                                          </tr>
+		                                      </c:forEach>
+		                                  </table>
+		
+		                              </div>
+		                              <div class="modal-footer">
+		                                  <button class="btn btn-primary" data-bs-target="#modalAlumnos"
+		                                      data-bs-toggle="modal">Guardar y volver</button>
+		                              </div>
+		                          </div>
+		                      </div>
+	                  </div>
+	                  <!-- fin modalCursos -->
+										                                  
+	    	</c:forEach>                
+	                    
+                   
+                    
+                   
+
                 </div>
             </nav>
         </div>
@@ -29,12 +136,12 @@
 
             <!-- Barra lateral -->
             <aside class="col-2 bg-dark text-center">
-                
+
 
                 <!-- Lista del resto de campos -->
                 <ul class="list-group">
                     <a href="IndexProfesores">
-                        <li class="list-group-item"> <span class="desaparece">Profesores</span>
+                        <li class="list-group-item hoverable"><span class="desaparece">Profesores</span>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
@@ -46,6 +153,8 @@
                         </li>
                     </a>
 
+
+
                     <a href="IndexAlumnos">
                         <li class="list-group-item"><span class="desaparece">Alumnos</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
@@ -54,7 +163,6 @@
                             </svg>
                         </li>
                     </a>
-
                     <a href="IndexSeguimientos">
                         <li class="list-group-item"><span class="desaparece">Seguimiento</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
@@ -70,7 +178,7 @@
                     </a>
 
                     <a href="">
-                        <li class="list-group-item"><span class="desaparece">Programas</span>
+                        <li class="list-group-item hoverable"><span class="desaparece">Programas</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-book-half" viewBox="0 0 16 16">
                                 <path
@@ -80,7 +188,7 @@
                     </a>
 
                     <a href="IndexCursos">
-                        <li class="list-group-item"><span class="desaparece">Cursos</span>
+                        <li class="list-group-item hoverable"><span class="desaparece">Cursos</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-folder-fill" viewBox="0 0 16 16">
                                 <path
@@ -91,7 +199,7 @@
 
                 </ul>
             </aside>
-            
+
             <div class="col-10 mt-2">
 
                 <!-- boton crear Alumno -->
@@ -114,16 +222,24 @@
                             </div>
                             <div class="modal-body">
                                 <form action="StoreAlumnos" method="post">
-                                    <p>DNI: <input type="text" name="dni" /></p>
-                                    <p>Nombre: <input type="text" name="nombre" /></p>
-                                    <p>Apellido: <input type="text" name="apellido" /></p>
-                                    <p>Edad: <input type="text" name="edad" /></p>
-                                    <p>idCurso: <input type="text" name="idCurso" /></p>
+                                    <p>
+                                        DNI: <input type="text" name="dni" />
+                                    </p>
+                                    <p>
+                                        Nombre: <input type="text" name="nombre" />
+                                    </p>
+                                    <p>
+                                        Apellido: <input type="text" name="apellido" />
+                                    </p>
+                                    <p>
+                                        Edad: <input type="text" name="edad" />
+                                    </p>
+
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="submit" class="btn naranja btn-warning ">Guardar</button>
+                                        <button type="submit" class="btn naranja btn-warning">Guardar</button>
                                     </div>
 
                                 </form>
@@ -132,8 +248,8 @@
                         </div>
                     </div>
                 </div>
-                
-                  <!-- Atributos -->
+
+                <!-- Atributos -->
                 <table class="table">
                     <thead>
                         <tr>
@@ -158,8 +274,7 @@
                                 <td>${alumno.edad}</td>
                                 <td>${alumno.curso.nivel}</td>
                                 <td>
-                                
-                                 <!-- boton ver -->
+                                    <!-- boton ver -->
                                     <button type="button" class="btn btn-light" data-bs-toggle="modal"
                                         data-bs-target="#verAlumno${alumno.id}">
 
@@ -184,18 +299,19 @@
                                                 <div class="modal-body">
 
                                                     <ul class="list-group list-group-flush">
+
                                                         <li class="list-group-item"> <strong>DNI:</strong> ${alumno.dni}</li>
                                                         <li class="list-group-item"><strong>Nombre:</strong> ${alumno.nombre}</li>
                                                         <li class="list-group-item"><strong>Apellido:</strong> ${alumno.apellido}</li>
                                                         <li class="list-group-item"><strong>Edad:</strong> ${alumno.edad}</li>
                                                         <li class="list-group-item"><strong>Curso:</strong> ${alumno.curso.nivel} | ${alumno.curso.turno}</li>
+
                                                     </ul>
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
-
                                     <!-- boton editar -->
                                     <button type="button" class="btn btn-light" data-bs-toggle="modal"
                                         data-bs-target="#editarAlumno${alumno.id}">
@@ -220,20 +336,20 @@
                                                 <div class="modal-body">
                                                     <form action="UpdateAlumnos" method="POST">
                                                         <input type="hidden" name="id" value="${alumno.id}" />
-                                                        <p class="mb-0"> DNI:</p> <input type="text" name="dni"
-                                                            value="${alumno.dni}" />
-                                                            
-                                                        <p class="mb-0"> Nombre:</p> <input type="text" name="nombre"
-                                                            value="${alumno.nombre}" />
-                                                            
-                                                        <p class="mb-0"> Apellido :</p> <input type="text"
-                                                            name="apellido" value="${alumno.apellido}" />
-                                                           
-                                                        <p class="mb-0"> Edad :</p> <input type="text"
-                                                            name="edad" value="${alumno.edad}" />
-                                                            
-                                                        <p class="mb-0"> idCurso :</p> <input type="text"
-                                                            name="idCurso" value="${alumno.curso.id}" />
+                                                        <p class="mb-0">DNI:</p>
+                                                        <input type="text" name="dni" value="${alumno.dni}" />
+
+                                                        <p class="mb-0">Nombre:</p>
+                                                        <input type="text" name="nombre" value="${alumno.nombre}" />
+
+                                                        <p class="mb-0">Apellido :</p>
+                                                        <input type="text" name="apellido" value="${alumno.apellido}" />
+
+                                                        <p class="mb-0">Edad :</p>
+                                                        <input type="text" name="edad" value="${alumno.edad}" />
+
+                                                        <p class="mb-0">idCurso :</p>
+                                                        <input type="text" name="idCurso" value="${alumno.curso.id}" />
 
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -247,18 +363,17 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    <!-- boton eliminar -->
-                                    <a class="btn btn-light" href="DestroyAlumnos?id=${alumno.id}"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                            fill="currentColor" class="bi bi-backspace-reverse" viewBox="0 0 16 16">
+                                    <!-- boton eliminar --> 
+                                    <a class="btn btn-light"
+                                        href="DestroyAlumnos?id=${alumno.id}"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="25" height="25" fill="currentColor" class="bi bi-backspace-reverse"
+                                            viewBox="0 0 16 16">
                                             <path
                                                 d="M9.854 5.146a.5.5 0 0 1 0 .708L7.707 8l2.147 2.146a.5.5 0 0 1-.708.708L7 8.707l-2.146 2.147a.5.5 0 0 1-.708-.708L6.293 8 4.146 5.854a.5.5 0 1 1 .708-.708L7 7.293l2.146-2.147a.5.5 0 0 1 .708 0" />
                                             <path
                                                 d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7.08a2 2 0 0 0 1.519-.698l4.843-5.651a1 1 0 0 0 0-1.302L10.6 1.7A2 2 0 0 0 9.08 1zm7.08 1a1 1 0 0 1 .76.35L14.682 8l-4.844 5.65a1 1 0 0 1-.759.35H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
-                                        </svg>
-                                    </a>
+                                        </svg> 
+                                      </a>
                                 </td>
 
                             </tr>
@@ -273,6 +388,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+
         </script>
 </body>
 
