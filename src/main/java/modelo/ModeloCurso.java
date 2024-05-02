@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ModeloCurso extends Conector{
 	ModeloProfesor modeloProfesor = new ModeloProfesor();
 
-	public ArrayList<Curso> getAll () {
+	public ArrayList<Curso> getAll() {
 		ArrayList<Curso> cursos = new ArrayList<>();
 		String sql = "SELECT * FROM CURSOS";
 		

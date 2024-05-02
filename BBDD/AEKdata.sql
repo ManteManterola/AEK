@@ -2,14 +2,14 @@
 DELETE FROM PROFESORES;
 
 -- Insertar datos en la tabla PROFESORES
-INSERT INTO PROFESORES (dni, nombre, apellido) VALUES (12345678E, 'Juan', 'Perez');
-INSERT INTO PROFESORES (dni, nombre, apellido) VALUES (98765432U, 'María', 'González');
-INSERT INTO PROFESORES (dni, nombre, apellido) VALUES (45678912Q, 'Pedro', 'Sánchez');
-INSERT INTO PROFESORES (dni, nombre, apellido) VALUES (78912345S, 'Laura', 'Martínez');
-INSERT INTO PROFESORES (dni, nombre, apellido) VALUES (32165498N, 'Carlos', 'López');
+INSERT INTO PROFESORES (dni, nombre, apellido) VALUES ('12345678E', 'Juan', 'Perez');
+INSERT INTO PROFESORES (dni, nombre, apellido) VALUES ('98765432U', 'Maria', 'Gonzalez');
+INSERT INTO PROFESORES (dni, nombre, apellido) VALUES ('45678912Q', 'Pedro', 'Sanchez');
+INSERT INTO PROFESORES (dni, nombre, apellido) VALUES ('78912345S', 'Laura', 'Martinez');
+INSERT INTO PROFESORES (dni, nombre, apellido) VALUES ('32165498N', 'Carlos', 'Lopez');
 
 -- Eliminar todos los campos de cursos
-DELETE FROM PROFESORES;
+DELETE FROM CURSOS;
 
 -- Insertar datos en la tabla CURSOS
 INSERT INTO CURSOS (nivel, turno, idProfesor) VALUES ('A1', 'Diurno', 1);
@@ -23,11 +23,11 @@ INSERT INTO CURSOS (nivel, turno, idProfesor) VALUES ('C2', 'Nocturno', 5);
 DELETE FROM ALUMNOS;
 
 -- Insertar datos en la tabla ALUMNOS
-INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES (12345678A, 'Juan', 'Pérez', 20, 1);
-INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES (98765432X, 'María', 'González', 22, 2);
-INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES (45678912Q, 'Pedro', 'Sánchez', 21, 1);
-INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES (78912345P, 'Laura', 'Martínez', 23, 3);
-INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES (32165498L, 'Carlos', 'López', 20, 2);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('12345678A', 'Juan', 'Perez', 20, 1);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('98765432X', 'Maria', 'Gonzalez', 22, 2);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('45678912Q', 'Pedro', 'Sanchez', 21, 1);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('78912345P', 'Laura', 'Martinez', 23, 3);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('32165498L', 'Carlos', 'Lopez', 20, 2);
 
 -- Eliminar todos los campos de programas
 DELETE FROM PROGRAMAS;
