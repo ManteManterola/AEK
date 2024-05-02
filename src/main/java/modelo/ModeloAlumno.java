@@ -89,6 +89,8 @@ public class ModeloAlumno extends Conector {
 
 			PreparedStatement pst = this.conexion.prepareStatement(
 					"UPDATE ALUMNOS SET dni = ?, nombre = ?, apellido = ?, edad = ?, idCurso = ? WHERE id = ?");
+			PreparedStatement pst2 = this.conexion
+					.prepareStatement("UPDATE ALUMNOS SET dni = ?, nombre = ?, apellido = ?, edad = ? WHERE id = ?");
 
 			pst.setString(1, alumno.getDni());
 			pst.setString(2, alumno.getNombre());
@@ -96,8 +98,19 @@ public class ModeloAlumno extends Conector {
 			pst.setInt(4, alumno.getEdad());
 			pst.setInt(5, alumno.getCurso().getId());
 			pst.setInt(6, alumno.getId());
+			int curso = alumno.getCurso().getId();
 
-			return pst.executeUpdate();
+			if (curso == 0) {
+
+				return pst2.executeUpdate();
+
+			}
+
+			else {
+				pst.setInt(6, alumno.getId());
+				return pst.executeUpdate();
+			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -165,14 +178,14 @@ public class ModeloAlumno extends Conector {
 		return alumnosNuevos;
 	}
 
-	public int asignarCurso(int idAlumno , int idCurso) {
+	public int asignarCurso(int idAlumno, int idCurso) {
 
 		try {
 
 			PreparedStatement pst = this.conexion.prepareStatement("UPDATE ALUMNOS SET  idCurso = ? WHERE id = ?");
 
 			pst.setInt(1, idCurso);
-			pst.setInt(2,idAlumno);
+			pst.setInt(2, idAlumno);
 
 			return pst.executeUpdate();
 		} catch (SQLException e) {
