@@ -36,8 +36,9 @@
 
 						<!-- Lista del resto de campos -->
 						<ul class="list-group">
-							<a href="IndexProfesores  hoverable">
-								<li class="list-group-item"><span class="desaparece">Profesores</span>
+
+							<a href="IndexProfesores">
+								<li class="list-group-item hoverable"><span class="desaparece">Profesores</span>
 
 									<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
 										class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
