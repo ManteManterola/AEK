@@ -45,3 +45,18 @@ INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (
 INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (5, 'Baja', 'Bajo', 3);
 INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (1, 'Media', 'Medio', 4);
 INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (3, 'Alta', 'Sobresaliente', 5);
+
+----------------------------------------------------------------------------------------------------------------------------
+-- CONSULTAS --
+-- Saca todos los alumnos que no tienen seguimiento --
+DELIMITER //
+CREATE PROCEDURE ALUMNOSSINSEGUIMIENTO()
+
+BEGIN
+SELECT ALUMNOS.*
+FROM ALUMNOS
+LEFT JOIN SEGUIMIENTOS ON ALUMNOS.id = SEGUIMIENTOS.idAlumno
+WHERE SEGUIMIENTOS.idAlumno IS NULL;
+END//
+DELIMITER ;
+CALL ALUMNOSSINSEGUIMIENTO()
