@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS SEGUIMIENTOS, ALUMNOS, PROGRAMAS, CURSOS, PROFESORES;
+DROP TABLE IF EXISTS HISTORICO,SEGUIMIENTOS, ALUMNOS, PROGRAMAS, CURSOS, PROFESORES;
 
 CREATE TABLE PROFESORES (
 id INT,
@@ -33,7 +33,14 @@ CREATE TABLE SEGUIMIENTOS (
 faltas INT,
 participacion VARCHAR(25),
 rendimiento VARCHAR(25),
+nota INT(2) default null,
 idAlumno INT
+);
+
+CREATE TABLE HISTORICO (
+fecha DATE,
+idCurso INT,
+media DOUBLE
 );
 
 -- Alter tables profesores --
@@ -99,5 +106,15 @@ ADD CONSTRAINT chk_participacion CHECK (participacion IN ('Baja', 'Media', 'Alta
 
 ALTER TABLE SEGUIMIENTOS
 ADD CONSTRAINT chk_rendimiento CHECK (rendimiento IN ('Bajo', 'Medio', 'Alto', 'Sobresaliente'));
+
+ALTER TABLE SEGUIMIENTOS
+ADD CONSTRAINT nota_check CHECK (nota >= 0 AND nota <= 10);
+----------------------------------------------------------------------------------------
+-- Alter table historico --
+ALTER TABLE HISTORICO
+ADD CONSTRAINT pk_historico PRIMARY KEY (fecha,idCurso);
+
+ALTER TABLE HISTORICO
+ADD CONSTRAINT fk_historico_curso FOREIGN KEY (idCurso) REFERENCES CURSOS(id);
 
 
