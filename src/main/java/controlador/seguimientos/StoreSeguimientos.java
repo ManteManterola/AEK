@@ -47,6 +47,7 @@ public class StoreSeguimientos extends HttpServlet {
 		int faltas = Integer.parseInt(request.getParameter("faltas"));
 		String participacion = request.getParameter("participacion");
 		String rendimiento = request.getParameter("rendimiento");
+		int nota = Integer.parseInt(request.getParameter("nota"));
 		int idAlumno = Integer.parseInt(request.getParameter("idAlumno"));
 		
 		//almacenar el seguimiento en la bbdd
@@ -55,6 +56,7 @@ public class StoreSeguimientos extends HttpServlet {
 		seguimiento.setFaltas(faltas);
 		seguimiento.setParticipacion(participacion);
 		seguimiento.setRendimiento(rendimiento);
+		seguimiento.setNota(nota);
 		seguimiento.setAlumno(modeloAlumno.get(idAlumno));
 		
 		ModeloSeguimiento modeloSeguimiento = new ModeloSeguimiento();
