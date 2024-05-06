@@ -33,7 +33,63 @@ INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('32165498L', 
 DELETE FROM PROGRAMAS;
 
 -- Insertar datos en la tabla PROGRAMAS
-INSERT INTO PROGRAMAS (contenido, criterioEvaluacion, idCurso) VALUES ('Hola que tal estas', 'Yo bien y tu', 1);
+INSERT INTO PROGRAMAS (contenido, criterioEvaluacion, idCurso) VALUES ('Unidad 1: Saludos y Presentaciones
+- Saludar y despedirse en euskera.
+- Presentarse a uno mismo y a otras personas.
+- Expresar gratitud y cortesía básica.
+- Números del 1 al 10.
+- Vocabulario básico de personas y objetos.
+
+Unidad 2: En el Restaurante
+- Pedir comida y bebida en un restaurante.
+- Expresar preferencias y gustos.
+- Frases comunes para pedir y ofrecer ayuda.
+- Vocabulario relacionado con alimentos y bebidas.
+- Frases útiles para interactuar con el camarero.
+
+Unidad 3: Rutinas Diarias
+- Hablar sobre actividades diarias y rutinas.
+- Describir la hora y los horarios.
+- Expresar frecuencia de actividades.
+- Verbos regulares en presente.
+- Vocabulario de actividades diarias y horarios.
+
+Unidad 4: De Compras
+- Comprar en una tienda y hacer preguntas sobre productos.
+- Expresar precios y cantidades.
+- Vocabulario de ropa, colores y tallas.
+- Expresiones para hablar sobre preferencias y necesidades.
+- Frases útiles para negociar y hacer compras.', 
+
+'Comprensión Auditiva:
+
+- Entender instrucciones básicas y preguntas simples en euskera.
+-Reconocer palabras y frases comunes en diálogos lentos y claros.
+
+Expresión Oral:
+
+-Presentarse y describirse de manera simple en euskera.
+-Usar frases básicas para comunicarse en situaciones cotidianas, como saludar, pedir ayuda o hacer preguntas sencillas.
+
+Comprensión Lectora:
+
+-Comprender mensajes cortos y simples en carteles, anuncios o instrucciones escritas.
+-Identificar información básica en textos breves y familiares.
+
+Expresión Escrita:
+
+-Escribir frases y mensajes cortos utilizando vocabulario y estructuras gramaticales aprendidas en el curso.
+-Transmitir información básica de manera clara y comprensible.
+
+Interacción Oral:
+
+-Participar en conversaciones simples y breves en euskera.
+-Ser capaz de realizar intercambios básicos en situaciones prácticas, como pedir comida en un restaurante o dar direcciones.
+
+Cultura y Conciencia Cultural:
+
+-Mostrar un conocimiento básico de la cultura vasca y sus tradiciones.
+-Reconocer algunos aspectos culturales relevantes en el uso del lenguaje y las interacciones sociales en el contexto vasco.', 1);
 INSERT INTO PROGRAMAS (contenido, criterioEvaluacion, idCurso) VALUES ('A ver eso de ahi', 'Aqui no hay nada', 2);
 
 -- Eliminar todos los campos de seguimientos
