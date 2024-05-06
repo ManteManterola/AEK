@@ -14,7 +14,7 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-	<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="style1.css">
 </head>
 
 <body class="bg-light-subtle">
@@ -109,8 +109,8 @@
 													<td>${curso.nivel}</td>
 													<td>${curso.turno}</td>
 													<td>${curso.profesor.nombre}</td>
-													<td>
-													<a href="AsignCurso?idAlumno=${alumnoNuevo.id}&idCurso=${curso.id}">Asignar</a>
+													<td><a
+														href="AsignCurso?idAlumno=${alumnoNuevo.id}&idCurso=${curso.id}">Asignar</a>
 													</td>
 												</tr>
 											</c:forEach>
@@ -211,7 +211,8 @@
 								fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
   								<path
 									d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z" />
-  								<path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z" />
+  								<path
+									d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z" />
 																</svg></li>
 					</a>
 
@@ -377,11 +378,19 @@
 															value="${alumno.apellido}" />
 
 														<p class="mb-0">Edad :</p>
-														<input type="text" name="edad" value="${alumno.edad}" />
+														<input type="number" name="edad" value="${alumno.edad}" />
 
-														<p class="mb-0">idCurso :</p>
-														<input type="number" name="idCurso"
-															value="${alumno.curso.id}" />
+														<p>
+															Curso: 
+															<select name="idCurso">
+																<option value=0></option>
+																<c:forEach items="${cursos}"
+																	var="cursos">
+																	<option ${cursos.id==alumno.curso.id ? 'selected': '' } value="${cursos.id}">${cursos.nivel} ${cursos.turno}
+																		</option>
+																</c:forEach>
+															</select>
+														</p>
 
 														<div class="modal-footer">
 															<button type="button" class="btn btn-secondary"
