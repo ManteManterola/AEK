@@ -77,7 +77,7 @@
 									</svg></li>
 					</a>
 
-					<a href="">
+					<a href="IndexProgramas">
 						<li class="list-group-item hoverable"><span
 							class="desaparece">Programas</span> <svg
 								xmlns="http://www.w3.org/2000/svg" width="22" height="22"
@@ -132,7 +132,11 @@
 								<td>${historico.curso.turno}</td>
 								<td>${historico.media}</td>
 								<td>
-									</div> <!-- boton eliminar --> <a class="btn btn-light"
+									</div>
+									
+									 <!-- boton eliminar -->
+									 
+									  <a class="btn btn-light"
 									href="DestroyHistoricos?idCurso=${historico.curso.id}"><svg
 											xmlns="http://www.w3.org/2000/svg" width="25" height="25"
 											fill="currentColor" class="bi bi-backspace-reverse"

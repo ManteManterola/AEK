@@ -14,7 +14,7 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-	<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="style1.css">
 </head>
 
 <body class="bg-light-subtle">
@@ -109,8 +109,8 @@
 													<td>${curso.nivel}</td>
 													<td>${curso.turno}</td>
 													<td>${curso.profesor.nombre}</td>
-													<td>
-													<a href="AsignCurso?idAlumno=${alumnoNuevo.id}&idCurso=${curso.id}">Asignar</a>
+													<td><a href="AsignCurso?idAlumno=${alumnoNuevo.id}&idCurso=${curso.id}"> <span>Asignar</span> </a>
+													
 													</td>
 												</tr>
 											</c:forEach>
@@ -118,8 +118,8 @@
 
 									</div>
 									<div class="modal-footer">
-										<button class="btn btn-primary" data-bs-target="#modalAlumnos"
-											data-bs-toggle="modal">Volver</button>
+										<button class="btn naranja btn-warning"
+											data-bs-target="#modalAlumnos" data-bs-toggle="modal">Volver</button>
 									</div>
 								</div>
 							</div>
@@ -127,10 +127,6 @@
 						<!-- fin modalCursos -->
 
 					</c:forEach>
-
-
-
-
 
 				</div>
 			</nav>
@@ -211,7 +207,8 @@
 								fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
   								<path
 									d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z" />
-  								<path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z" />
+  								<path
+									d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z" />
 																</svg></li>
 					</a>
 
@@ -393,16 +390,20 @@
 
 											</div>
 										</div>
-									</div> <!-- boton eliminar --> <a class="btn btn-light"
-									href="DestroyAlumnos?id=${alumno.id}"><svg
-											xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-											fill="currentColor" class="bi bi-backspace-reverse"
-											viewBox="0 0 16 16">
+									</div> 
+									
+									<!-- boton eliminar --> 
+									
+									<a class="btn btn-light" href="DestroyAlumnos?id=${alumno.id}"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                            fill="currentColor" class="bi bi-backspace-reverse" viewBox="0 0 16 16">
                                             <path
-												d="M9.854 5.146a.5.5 0 0 1 0 .708L7.707 8l2.147 2.146a.5.5 0 0 1-.708.708L7 8.707l-2.146 2.147a.5.5 0 0 1-.708-.708L6.293 8 4.146 5.854a.5.5 0 1 1 .708-.708L7 7.293l2.146-2.147a.5.5 0 0 1 .708 0" />
+                                                d="M9.854 5.146a.5.5 0 0 1 0 .708L7.707 8l2.147 2.146a.5.5 0 0 1-.708.708L7 8.707l-2.146 2.147a.5.5 0 0 1-.708-.708L6.293 8 4.146 5.854a.5.5 0 1 1 .708-.708L7 7.293l2.146-2.147a.5.5 0 0 1 .708 0" />
                                             <path
-												d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7.08a2 2 0 0 0 1.519-.698l4.843-5.651a1 1 0 0 0 0-1.302L10.6 1.7A2 2 0 0 0 9.08 1zm7.08 1a1 1 0 0 1 .76.35L14.682 8l-4.844 5.65a1 1 0 0 1-.759.35H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
-                                        </svg> </a>
+                                                d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7.08a2 2 0 0 0 1.519-.698l4.843-5.651a1 1 0 0 0 0-1.302L10.6 1.7A2 2 0 0 0 9.08 1zm7.08 1a1 1 0 0 1 .76.35L14.682 8l-4.844 5.65a1 1 0 0 1-.759.35H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
+                                        </svg>
+                                        
+                                    </a>
 								</td>
 
 							</tr>
@@ -421,6 +422,7 @@
 		crossorigin="anonymous">
 		
 	</script>
+	<script src="javaScript.js"></script>
 </body>
 
 </html>

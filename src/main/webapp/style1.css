@@ -1,5 +1,10 @@
 a {
     text-decoration: none;
+
+}
+
+span {
+    color: rgb(255, 128, 64);
 }
 
 
@@ -21,10 +26,6 @@ aside {
   
 .naranja {
 	 background-color:rgb(255, 193, 122);
-}
-
-.textoNaranja {
-	 text-decoration-color: rgb(255, 128, 64) ;
 }
 
 
