@@ -14,7 +14,7 @@
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="style1.css">
+	<link rel="stylesheet" href="style1.css">
 </head>
 
 <body class="bg-light-subtle">
@@ -109,10 +109,8 @@
 													<td>${curso.nivel}</td>
 													<td>${curso.turno}</td>
 													<td>${curso.profesor.nombre}</td>
-													<td><a
-														href="AsignCurso?idAlumno=${alumnoNuevo.id}&idCurso=${curso.id}">Asignar</a>
-
-
+													<td>
+													<a href="AsignCurso?idAlumno=${alumnoNuevo.id}&idCurso=${curso.id}">Asignar</a>
 													</td>
 												</tr>
 											</c:forEach>
@@ -185,7 +183,7 @@
                             </svg></li>
 					</a>
 
-					<a href="">
+					<a href="IndexProgramas">
 						<li class="list-group-item hoverable"><span
 							class="desaparece">Programas</span> <svg
 								xmlns="http://www.w3.org/2000/svg" width="22" height="22"

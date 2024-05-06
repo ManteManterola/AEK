@@ -23,6 +23,11 @@ aside {
 	 background-color:rgb(255, 193, 122);
 }
 
+.textoNaranja {
+	 text-decoration-color: rgb(255, 128, 64) ;
+}
+
+
 .activo {
 	 background-color:rgb(255, 193, 122);
 }
