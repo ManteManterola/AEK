@@ -5,7 +5,16 @@ public class Seguimiento {
 	private int faltas;
 	private String participacion;
 	private String rendimiento;
+	private int nota;
 	private Alumno alumno;
+	
+	public int getNota() {
+		return nota;
+	}
+
+	public void setNota(int nota) {
+		this.nota = nota;
+	}
 
 	public int getFaltas() {
 		return faltas;
