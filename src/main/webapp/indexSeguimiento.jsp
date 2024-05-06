@@ -330,56 +330,40 @@
 																		? 'selected' : '' }>Sobresaliente</option>
 														</select>
 
-														<p class="mb-0">Rendimiento:</p>
-														<select name="rendimiento">
-															<option value="Bajo"
-																${seguimiento.rendimiento=='Bajo' ? 'selected'
-																		: '' }>Bajo</option>
-															<option value="Medio"
-																${seguimiento.rendimiento=='Medio' ? 'selected'
-																		: '' }>Medio</option>
-															<option value="Alto"
-																${seguimiento.rendimiento=='Alto' ? 'selected'
-																		: '' }>Alto</option>
-															<option value="Sobresaliente"
-																${seguimiento.rendimiento=='Sobresaliente'
-																		? 'selected' : '' }>Sobresaliente</option>
-														</select>
-
 														<p class="mb-0">Nota:</p>
 														<select name="nota">
 															<option value=0
 																${seguimiento.nota=='0' ? 'selected'
 																		: '' }>0</option>
 															<option value=1
-																${seguimiento.rendimiento=='1' ? 'selected'
+																${seguimiento.nota=='1' ? 'selected'
 																		: '' }>1</option>
 															<option value=2
-																${seguimiento.rendimiento=='2' ? 'selected'
+																${seguimiento.nota=='2' ? 'selected'
 																		: '' }>2</option>
 															<option value=3
-																${seguimiento.rendimiento=='3'
+																${seguimiento.nota=='3'
 																		? 'selected' : '' }>3</option>
 															<option value=4
-																${seguimiento.rendimiento=='4'
+																${seguimiento.nota=='4'
 																		? 'selected' : '' }>4</option>
 															<option value=5
-																${seguimiento.rendimiento=='5'
+																${seguimiento.nota=='5'
 																		? 'selected' : '' }>5</option>
 															<option value=6
-																${seguimiento.rendimiento=='6'
+																${seguimiento.nota=='6'
 																		? 'selected' : '' }>6</option>
 															<option value=7
-																${seguimiento.rendimiento=='7'
+																${seguimiento.nota=='7'
 																		? 'selected' : '' }>7</option>
 															<option value=8
-																${seguimiento.rendimiento=='8'
+																${seguimiento.nota=='8'
 																		? 'selected' : '' }>8</option>
 															<option value=9
-																${seguimiento.rendimiento=='9'
+																${seguimiento.nota=='9'
 																		? 'selected' : '' }>9</option>
 															<option value=10
-																${seguimiento.rendimiento=='10'
+																${seguimiento.nota=='10'
 																		? 'selected' : '' }>10</option>
 														</select>
 
