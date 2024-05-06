@@ -1,23 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alumnos</title>
+<title>Programas</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 	crossorigin="anonymous">
-	<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="style1.css">
 </head>
 
 <body class="bg-light-subtle">
+
 	<div class="container-fluid">
 
 		<div class="row">
@@ -25,113 +27,6 @@
 				<div class="container-fluid">
 					<a href="landingPage.jsp"><img src="imgs/logo-aek.png"
 						width="30%" height="60%" alt="logo-aek"></a>
-
-
-					<!-- Boton de matriculacion -->
-
-					<button class="btn btn-outline-warning"
-						data-bs-target="#modalAlumnos" data-bs-toggle="modal">MATRICULAR</button>
-
-					<div class="modal fade" id="modalAlumnos" aria-hidden="true"
-						aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-						<div class="modal-dialog modal-dialog-centered">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h1 class="modal-title fs-5" id="modalAlumnos">Alumnos sin
-										matricular</h1>
-									<button type="button" class="btn-close" data-bs-dismiss="modal"
-										aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
-									<table class="table">
-
-										<tr>
-											<th scope="">Id</th>
-											<th scope="col">Dni</th>
-											<th scope="col">Nombre</th>
-											<th scope="col">Apellido</th>
-											<th scope="col">Edad</th>
-											<th scope="col">Matricular</th>
-											<th></th>
-										</tr>
-
-										<!-- Datos -->
-										<c:forEach items="${alumnosNuevos}" var="alumnoNuevo">
-											<tr>
-												<td>${alumnoNuevo.id}</td>
-												<td>${alumnoNuevo.dni}</td>
-												<td>${alumnoNuevo.nombre}</td>
-												<td>${alumnoNuevo.apellido}</td>
-												<td>${alumnoNuevo.edad}</td>
-												<td>
-													<button class="btn naranja btn-warning btn-sm"
-														data-bs-target="#modalCursos${alumnoNuevo.id}"
-														data-bs-toggle="modal">CURSOS</button>
-
-
-												</td>
-											</tr>
-										</c:forEach>
-									</table>
-								</div>
-								<div class="modal-footer"></div>
-							</div>
-						</div>
-					</div>
-
-					<c:forEach items="${alumnosNuevos}" var="alumnoNuevo">
-						<!-- modal Cursos -->
-						<div class="modal fade" id="modalCursos${alumnoNuevo.id}"
-							aria-hidden="true" aria-labelledby="modalCursos" tabindex="-1">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h1 class="modal-title fs-5" id="modalCursos${alumnoNuevo.id}">Cursos</h1>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="modal-body">
-
-										<table class="table">
-
-											<tr>
-												<th scope="">Id</th>
-												<th scope="col">Nivel</th>
-												<th scope="col">Turno</th>
-												<th scope="col">Profesor</th>
-												<th></th>
-											</tr>
-
-											<!-- Datos -->
-											<c:forEach items="${cursos}" var="curso">
-												<tr>
-													<td>${curso.id}</td>
-													<td>${curso.nivel}</td>
-													<td>${curso.turno}</td>
-													<td>${curso.profesor.nombre}</td>
-													<td>
-													<a href="AsignCurso?idAlumno=${alumnoNuevo.id}&idCurso=${curso.id}">Asignar</a>
-													</td>
-												</tr>
-											</c:forEach>
-										</table>
-
-									</div>
-									<div class="modal-footer">
-										<button class="btn btn-primary" data-bs-target="#modalAlumnos"
-											data-bs-toggle="modal">Volver</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- fin modalCursos -->
-
-					</c:forEach>
-
-
-
-
-
 				</div>
 			</nav>
 		</div>
@@ -144,6 +39,7 @@
 
 				<!-- Lista del resto de campos -->
 				<ul class="list-group">
+
 					<a href="IndexProfesores">
 						<li class="list-group-item hoverable"><span
 							class="desaparece">Profesores</span> <svg
@@ -157,17 +53,17 @@
                             </svg></li>
 					</a>
 
-
-
 					<a href="IndexAlumnos">
-						<li class="list-group-item activo"><span class="desaparece">Alumnos</span>
-							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+						<li class="list-group-item hoverable"><span
+							class="desaparece">Alumnos</span> <svg
+								xmlns="http://www.w3.org/2000/svg" width="22" height="22"
 								fill="currentColor" class="bi bi-person-fill"
 								viewBox="0 0 16 16">
                                 <path
 									d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                             </svg></li>
 					</a>
+
 					<a href="IndexSeguimientos">
 						<li class="list-group-item hoverable"><span
 							class="desaparece">Seguimiento</span> <svg
@@ -184,9 +80,8 @@
 					</a>
 
 					<a href="IndexProgramas">
-						<li class="list-group-item hoverable"><span
-							class="desaparece">Programas</span> <svg
-								xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+						<li class="list-group-item activo"><span class="desaparece">Programas</span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
 								fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
                                 <path
 									d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
@@ -204,25 +99,15 @@
                             </svg></li>
 					</a>
 
-					<a href="IndexHistoricos">
-						<li class="list-group-item hoverable"><span
-							class="desaparece">Historico</span> <svg
-								xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-								fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
-  								<path
-									d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z" />
-  								<path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z" />
-																</svg></li>
-					</a>
-
 				</ul>
 			</aside>
 
 			<div class="col-10 mt-2">
 
-				<!-- boton crear Alumno -->
+				<!-- boton crear programa-->
+
 				<button type="button" class="btn btn-light" data-bs-toggle="modal"
-					data-bs-target="#crearAlumno">
+					data-bs-target="#crearPrograma">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 						fill="currentColor" class="bi bi-plus-square-fill"
 						viewBox="0 0 16 16">
@@ -231,7 +116,7 @@
                     </svg>
 				</button>
 
-				<div class="modal fade" id="crearAlumno" tabindex="-1"
+				<div class="modal fade" id="crearPrograma" tabindex="-1"
 					aria-labelledby="createModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -241,25 +126,32 @@
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form action="StoreAlumnos" method="post">
+								<form action="StoreProgramas" method="post">
+
 									<p>
-										DNI: <input type="text" name="dni" />
-									</p>
-									<p>
-										Nombre: <input type="text" name="nombre" />
-									</p>
-									<p>
-										Apellido: <input type="text" name="apellido" />
-									</p>
-									<p>
-										Edad: <input type="number" name="edad" />
+										<select name="idCurso">
+											<option value="0"></option>
+											<c:forEach items="${cursosSinPrograma}"
+												var="cursosSinPrograma">
+												<option value="${cursosSinPrograma.id}">
+													${cursosSinPrograma.nivel}</option>
+											</c:forEach>
+										</select>
 									</p>
 
+									<h5>Contenido:</h5>
+									<p>
+										<textarea name="contenido" rows="4" cols="50"></textarea>
+									</p>
+									<h5>Criterios de evaluacion:</h5>
+									<p>
+										<textarea name="criterioEvaluacion" rows="4" cols="50"></textarea>
+									</p>
 
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
 											data-bs-dismiss="modal">Cerrar</button>
-										<button type="submit" class="btn naranja btn-warning">Guardar</button>
+										<button type="submit" class="btn naranja btn-warning ">Guardar</button>
 									</div>
 
 								</form>
@@ -273,76 +165,81 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th scope="">Id</th>
-							<th scope="col">Dni</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Apellido</th>
-							<th scope="col">Edad</th>
-							<th scope="col">Curso</th>
+							<th scope="">Curso</th>
+							<th scope="col">Contenido</th>
+							<th scope="col">Criterio de evaluacion</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 
 						<!-- Datos -->
-						<c:forEach items="${alumnos}" var="alumno">
+						<c:forEach items="${programas}" var="programa">
 							<tr>
-								<td>${alumno.id}</td>
-								<td>${alumno.dni}</td>
-								<td>${alumno.nombre}</td>
-								<td>${alumno.apellido}</td>
-								<td>${alumno.edad}</td>
-								<td>${alumno.curso.nivel}</td>
+								<td>${programa.curso.nivel}</td>
 								<td>
-									<!-- boton ver -->
-									<button type="button" class="btn btn-light"
-										data-bs-toggle="modal" data-bs-target="#verAlumno${alumno.id}">
+									<!-- boton ver contenido -->
 
-										<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-											fill="currentColor" class="bi bi-eye-fill"
-											viewBox="0 0 16 16">
-                                            <path
-												d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
-                                            <path
-												d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
-                                        </svg>
+									<button type="button" class="btn naranja btn-warning btn-sm"
+										data-bs-toggle="modal"
+										data-bs-target="#verContenido${programa.curso.id}">visualizar</button>
 
-									</button>
-
-									<div class="modal fade" id="verAlumno${alumno.id}"
+									<div class="modal fade" id="verContenido${programa.curso.id}"
 										tabindex="-1" aria-labelledby="exampleModalLabel"
 										aria-hidden="true">
-										<div class="modal-dialog">
+										<div class="modal-dialog modal-dialog-scrollable modal-lg">
 											<div class="modal-content">
 												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLabel">Visualizacion</h5>
+													<h5 class="modal-title" id="exampleModalLabel">
+														${programa.curso.nivel} | ${programa.curso.turno}:</h5>
 													<button type="button" class="btn-close"
 														data-bs-dismiss="modal" aria-label="Close"></button>
 												</div>
+
+
 												<div class="modal-body">
-
-													<ul class="list-group list-group-flush">
-
-														<li class="list-group-item"><strong>DNI:</strong>
-															${alumno.dni}</li>
-														<li class="list-group-item"><strong>Nombre:</strong>
-															${alumno.nombre}</li>
-														<li class="list-group-item"><strong>Apellido:</strong>
-															${alumno.apellido}</li>
-														<li class="list-group-item"><strong>Edad:</strong>
-															${alumno.edad}</li>
-														<li class="list-group-item"><strong>Curso:</strong>
-															${alumno.curso.nivel} | ${alumno.curso.turno}</li>
-
-													</ul>
+													<pre> ${programa.contenido} </pre>
 												</div>
 
 											</div>
 										</div>
-									</div> <!-- boton editar -->
+									</div>
+								</td>
+
+								<td>
+									<!-- boton ver criterioEvaluacion -->
+									<button type="button" class="btn naranja btn-warning btn-sm"
+										data-bs-toggle="modal"
+										data-bs-target="#verCriterioEvaluacion${programa.curso.id}">
+										visualizar</button>
+
+									<div class="modal fade"
+										id="verCriterioEvaluacion${programa.curso.id}" tabindex="-1"
+										aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-scrollable modal-lg">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLabel">
+														${programa.curso.nivel} | ${programa.curso.turno}:</h5>
+													<button type="button" class="btn-close"
+														data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+
+
+												<div class="modal-body">
+													<pre> ${programa.criterioEvaluacion} </pre>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+								</td>
+								<td>
+									<!-- boton editar -->
 									<button type="button" class="btn btn-light"
 										data-bs-toggle="modal"
-										data-bs-target="#editarAlumno${alumno.id}">
+										data-bs-target="#modificarPrograma${programa.curso.id}">
 										<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
 											fill="currentColor" class="bi bi-pencil-square"
 											viewBox="0 0 16 16">
@@ -353,48 +250,40 @@
                                         </svg>
 									</button>
 
-									<div class="modal fade" id="editarAlumno${alumno.id}"
-										tabindex="-1" aria-labelledby="exampleModalLabel"
-										aria-hidden="true">
-										<div class="modal-dialog">
+									<div class="modal fade"
+										id="modificarPrograma${programa.curso.id}" tabindex="-1"
+										aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-scrollable modal-lg">
 											<div class="modal-content">
 												<div class="modal-header">
-													<h5 class="modal-title" id="editarModal">Modificar</h5>
+													<h5 class="modal-title" id="editarPrograma">Editar</h5>
 													<button type="button" class="btn-close"
 														data-bs-dismiss="modal" aria-label="Close"></button>
 												</div>
 												<div class="modal-body">
-													<form action="UpdateAlumnos" method="POST">
-														<input type="hidden" name="id" value="${alumno.id}" />
-														<p class="mb-0">DNI:</p>
-														<input type="text" name="dni" value="${alumno.dni}" />
 
-														<p class="mb-0">Nombre:</p>
-														<input type="text" name="nombre" value="${alumno.nombre}" />
-
-														<p class="mb-0">Apellido :</p>
-														<input type="text" name="apellido"
-															value="${alumno.apellido}" />
-
-														<p class="mb-0">Edad :</p>
-														<input type="text" name="edad" value="${alumno.edad}" />
-
-														<p class="mb-0">idCurso :</p>
-														<input type="number" name="idCurso"
-															value="${alumno.curso.id}" />
+													<form action="UpdateProgramas" method="post">
+													<input type="hidden" name="idCurso" value="${programa.curso.id}"/>
+													<h5>Contenido:</h5>
+													<textarea name="contenido" rows="4" cols="50">${programa.contenido}</textarea>
+													<h5>Criterios de evaluacion:</h5>
+													<textarea name="criterioEvaluacion" rows="4" cols="50">${programa.criterioEvaluacion}</textarea>
+													
 
 														<div class="modal-footer">
 															<button type="button" class="btn btn-secondary"
 																data-bs-dismiss="modal">Cerrar</button>
 															<button type="submit" class="btn naranja btn-warning ">Guardar</button>
 														</div>
+
 													</form>
+
 												</div>
 
 											</div>
 										</div>
 									</div> <!-- boton eliminar --> <a class="btn btn-light"
-									href="DestroyAlumnos?id=${alumno.id}"><svg
+									href="DestroyProgramas?idCurso=${programa.curso.id}"><svg
 											xmlns="http://www.w3.org/2000/svg" width="25" height="25"
 											fill="currentColor" class="bi bi-backspace-reverse"
 											viewBox="0 0 16 16">
@@ -404,7 +293,6 @@
 												d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7.08a2 2 0 0 0 1.519-.698l4.843-5.651a1 1 0 0 0 0-1.302L10.6 1.7A2 2 0 0 0 9.08 1zm7.08 1a1 1 0 0 1 .76.35L14.682 8l-4.844 5.65a1 1 0 0 1-.759.35H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" />
                                         </svg> </a>
 								</td>
-
 							</tr>
 						</c:forEach>
 
@@ -414,6 +302,7 @@
 		</div>
 
 	</div>
+
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

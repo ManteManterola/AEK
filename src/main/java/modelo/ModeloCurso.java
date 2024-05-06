@@ -105,6 +105,29 @@ public class ModeloCurso extends Conector{
 		
 	}
 
+	public ArrayList<Curso> cursosSinPrograma() {
+		ArrayList<Curso> cursos = new ArrayList<>();
+		String sql = "CALL CURSOSSINPROGRAMA()";
+
+		try {
+			ResultSet rs = conexion.createStatement().executeQuery(sql);
+
+			while (rs.next()) {
+				Curso curso = new Curso();
+
+				curso.setId(rs.getInt("id"));
+				curso.setNivel(rs.getString("nivel"));
+				curso.setTurno(rs.getString("turno"));
+				curso.setProfesor(modeloProfesor.get(rs.getInt("idProfesor")));
+
+				cursos.add(curso);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cursos;
+	}
+
 	
 	
 }

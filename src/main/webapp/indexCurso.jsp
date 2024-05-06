@@ -70,7 +70,7 @@
                         </li>
                     </a>
 
-                    <a href="">
+                    <a href="IndexProgramas">
                         <li class="list-group-item hoverable"><span class="desaparece">Programas</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                                 class="bi bi-book-half" viewBox="0 0 16 16">
@@ -106,7 +106,7 @@
             <div class="col-10 mt-2">
             
              <!-- boton crear -->
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#crearCurso">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#crearCurso">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                         class="bi bi-plus-square-fill" viewBox="0 0 16 16">
                         <path
