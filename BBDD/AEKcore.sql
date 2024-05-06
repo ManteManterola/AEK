@@ -33,7 +33,7 @@ CREATE TABLE SEGUIMIENTOS (
 faltas INT,
 participacion VARCHAR(25),
 rendimiento VARCHAR(25),
-nota INT(2) default null,
+nota INT default null,
 idAlumno INT
 );
 

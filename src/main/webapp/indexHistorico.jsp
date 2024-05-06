@@ -64,8 +64,9 @@
 					</a>
 
 					<a href="IndexSeguimientos">
-						<li class="list-group-item hoverable"><span class="desaparece">Seguimiento</span>
-							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+						<li class="list-group-item hoverable"><span
+							class="desaparece">Seguimiento</span> <svg
+								xmlns="http://www.w3.org/2000/svg" width="22" height="22"
 								fill="currentColor" class="bi bi-journal-bookmark-fill"
 								viewBox="0 0 16 16">
 										<path fill-rule="evenodd"
@@ -97,12 +98,14 @@
 									d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z" />
 									</svg></li>
 					</a>
-					
+
 					<a href="IndexHistoricos">
-						<li class="list-group-item activo"><span
-							class="desaparece">Historico</span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
-  <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z"/>
-  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
+						<li class="list-group-item activo"><span class="desaparece">Historico</span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+  <path
+									d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z" />
+  <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z" />
 </svg></li>
 					</a>
 
