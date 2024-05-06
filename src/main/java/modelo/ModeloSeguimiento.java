@@ -21,6 +21,7 @@ public class ModeloSeguimiento extends Conector{
 				seguimiento.setFaltas(rs.getInt("faltas"));
 				seguimiento.setParticipacion(rs.getString("participacion"));
 				seguimiento.setRendimiento(rs.getString("rendimiento"));
+				seguimiento.setNota(rs.getInt("nota"));
 				seguimiento.setAlumno(modeloAlumno.get(rs.getInt("idAlumno")));
 				seguimientos.add(seguimiento);
 			}
@@ -34,7 +35,7 @@ public class ModeloSeguimiento extends Conector{
 
 	
 	public void insert(Seguimiento seguimiento) {
-		String sql = "INSERT INTO SEGUIMIENTOS (faltas,participacion,rendimiento,idAlumno) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO SEGUIMIENTOS (faltas,participacion,rendimiento,nota,idAlumno) VALUES (?,?,?,?,?)";
 		
 		PreparedStatement pst;
 		
@@ -44,7 +45,9 @@ public class ModeloSeguimiento extends Conector{
 			pst.setInt(1, seguimiento.getFaltas());
 			pst.setString(2, seguimiento.getParticipacion());
 			pst.setString(3, seguimiento.getRendimiento());
-			pst.setInt(4, seguimiento.getAlumno().getId());
+			pst.setInt(4, seguimiento.getNota());
+			pst.setInt(5, seguimiento.getAlumno().getId());
+			
 			
 			pst.execute();
 		} catch (SQLException e) {
@@ -65,12 +68,13 @@ public class ModeloSeguimiento extends Conector{
 	
 	public int update(Seguimiento seguimiento) {
 		try {
-			PreparedStatement pst = this.conexion.prepareStatement("UPDATE SEGUIMIENTOS SET faltas = ?, participacion = ?, rendimiento = ? WHERE idAlumno = ?");
+			PreparedStatement pst = this.conexion.prepareStatement("UPDATE SEGUIMIENTOS SET faltas = ?, participacion = ?, rendimiento = ?, nota = ? WHERE idAlumno = ?");
 			
 			pst.setInt(1, seguimiento.getFaltas());
 			pst.setString(2, seguimiento.getParticipacion());
 			pst.setString(3, seguimiento.getRendimiento());
-			pst.setInt(4, seguimiento.getAlumno().getId());
+			pst.setInt(4, seguimiento.getNota());
+			pst.setInt(5, seguimiento.getAlumno().getId());
 			
 			return pst.executeUpdate();
 		} catch (SQLException e) {

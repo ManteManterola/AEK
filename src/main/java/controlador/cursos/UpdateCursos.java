@@ -1,4 +1,4 @@
-package controlador.curso;
+package controlador.cursos;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

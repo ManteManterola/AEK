@@ -30,7 +30,7 @@
 					<!-- Boton de matriculacion -->
 
 					<button class="btn btn-outline-warning"
-						data-bs-target="#modalAlumnos" data-bs-toggle="modal">MATRICULA</button>
+						data-bs-target="#modalAlumnos" data-bs-toggle="modal">MATRICULAR</button>
 
 					<div class="modal fade" id="modalAlumnos" aria-hidden="true"
 						aria-labelledby="exampleModalToggleLabel" tabindex="-1">
