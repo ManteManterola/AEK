@@ -208,6 +208,7 @@
 					<thead>
 						<tr>
 							<th scope="">Alumno</th>
+							<th scope="">Curso</th>
 							<th scope="col">Faltas</th>
 							<th scope="col">Participacion</th>
 							<th scope="col">Rendimiento</th>
@@ -220,8 +221,8 @@
 						<!-- Datos -->
 						<c:forEach items="${seguimientos}" var="seguimiento">
 							<tr>
-								<td>${seguimiento.alumno.id},${seguimiento.alumno.dni},
-									${seguimiento.alumno.nombre} ${seguimiento.alumno.apellido}</td>
+								<td>${seguimiento.alumno.nombre} ${seguimiento.alumno.apellido}</td>
+								<td>${seguimiento.alumno.curso.nivel} ${seguimiento.alumno.curso.turno}</td>
 								<td>${seguimiento.faltas}</td>
 								<td>${seguimiento.participacion}</td>
 								<td>${seguimiento.rendimiento}</td>
