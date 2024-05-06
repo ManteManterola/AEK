@@ -46,7 +46,7 @@ public class UpdateProgramas extends HttpServlet {
 		
 		String contenido = request.getParameter("contenido");
 		String criterioEvaluacion = request.getParameter("criterioEvaluacion");
-		int idCurso = Integer.parseInt(request.getParameter("idAlumno"));
+		int idCurso = Integer.parseInt(request.getParameter("idCurso"));
 		
 		//almacenar el programa en la bbdd
 		ModeloCurso modeloCurso = new ModeloCurso();

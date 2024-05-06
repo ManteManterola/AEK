@@ -79,6 +79,7 @@ String sql = "INSERT INTO PROGRAMAS (contenido,criterioEvaluacion,idCurso) VALUE
 			pst.setString(1, programa.getContenido());
 			pst.setString(2, programa.getCriterioEvaluacion());
 			pst.setInt(3, programa.getCurso().getId());
+			pst.setInt(4, programa.getCurso().getId());
 			
 			return pst.executeUpdate();
 		} catch (SQLException e) {
