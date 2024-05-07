@@ -322,20 +322,24 @@
                                                     <p class="mb-0">Apellido :</p>
                                                     <input type="text" name="apellido" value="${alumno.apellido}" />
 
+
                                                     <p class="mb-0">Edad :</p>
                                                     <input type="number" name="edad" value="${alumno.edad}" />
 
-                                                    <p>
-                                                        Curso: 
-                                                        <select name="idCurso">
-                                                            <option value=0></option>
-                                                            <c:forEach items="${cursos}" var="cursos">
-                                                                <option ${cursos.id==alumno.curso.id ? 'selected' : '' }
-                                                                    value="${cursos.id}">${cursos.nivel}
-                                                                    ${cursos.turno}</option>
-                                                            </c:forEach>
-                                                        </select>
-                                                    </p>
+														<p>
+															Curso: <br> 
+															<select name="idCurso">
+																<option value=0></option>
+																<c:forEach items="${cursos}"
+																	var="cursos">
+																	<option ${cursos.id==alumno.curso.id ? 'selected': '' } value="${cursos.id}">${cursos.nivel} ${cursos.turno}
+																		</option>
+																</c:forEach>
+															</select>
+														</p>
+
+
+                                                    
 
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"

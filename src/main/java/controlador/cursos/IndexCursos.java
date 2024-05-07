@@ -35,7 +35,9 @@ public class IndexCursos extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<Curso> cursos = new ModeloCurso().getAll();
+		ArrayList<Profesor> profesores = new ModeloProfesor().getAll();
 		
+		request.setAttribute("profesores", profesores);
 		request.setAttribute("cursos", cursos);
 		request.getRequestDispatcher("indexCurso.jsp").forward(request, response);
 	}
