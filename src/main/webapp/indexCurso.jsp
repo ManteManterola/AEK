@@ -127,7 +127,13 @@
                                 <form action="StoreCursos" method="post">
                                     <p>Nivel: <input type="text" name="nivel" /></p>
                                     <p>Turno: <input type="text" name="turno" /></p>
-                                    <p>idProfesor: <input type="text" name="idProfesor" /></p>
+                                    <p>Profesor: <select name="idProfesor">
+											<option value="0"></option>
+											<c:forEach items="${profesores}"
+												var="profesores">
+												<option value="${profesores.id}">${profesores.dni} | ${profesores.nombre} ${profesores.apellido}</option>
+											</c:forEach>
+										</select></p>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
@@ -229,8 +235,14 @@
                                                             value="${curso.nivel}" />
                                                         <p class="mb-0"> Turno:</p> <input type="text" name="turno"
                                                             value="${curso.turno}" />
-                                                        <p class="mb-0"> Profesor :</p> <input type="text" name="idProfesor"
-                                                            value="${curso.profesor.id}" />
+                                                        <p class="mb-0"> Profesor :<br> <select name="idProfesor">
+																<option value=0></option>
+																<c:forEach items="${profesores}"
+																	var="profesores">
+																	<option ${profesores.id==curso.profesor.id ? 'selected': '' } value="${profesores.id}">${profesores.dni} | ${profesores.nombre} ${profesores.apellido}
+																		</option>
+																</c:forEach>
+															</select></p>
 
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ModeloAlumno extends Conector {
 
@@ -111,6 +112,21 @@ public class ModeloAlumno extends Conector {
 			return 0;
 		}
 	}
+	
+	public void matricular(String idCurso, String[] alumnosSeleccionados) {
+		for (String idAlumno : alumnosSeleccionados) {
+			try {
+				PreparedStatement pst = this.conexion.prepareStatement(
+						"UPDATE ALUMNOS SET idCurso = ? WHERE id = ?");
+				pst.setString(1, idCurso);
+				pst.setString(2, idAlumno);
+				
+				pst.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public void delete(int id) {
 		String sql = "DELETE FROM ALUMNOS WHERE id=?";
@@ -119,6 +135,7 @@ public class ModeloAlumno extends Conector {
 			PreparedStatement pst = conexion.prepareStatement(sql);
 			pst.setInt(1, id);
 			pst.execute();
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -172,20 +189,5 @@ public class ModeloAlumno extends Conector {
 		return alumnosNuevos;
 	}
 
-	public int asignarCurso(int idAlumno, int idCurso) {
-
-		try {
-
-			PreparedStatement pst = this.conexion.prepareStatement("UPDATE ALUMNOS SET  idCurso = ? WHERE id = ?");
-
-			pst.setInt(1, idCurso);
-			pst.setInt(2, idAlumno);
-
-			return pst.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return 0;
-		}
-	}
+	
 }
