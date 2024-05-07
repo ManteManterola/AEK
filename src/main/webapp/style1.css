@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+
 }
 
 
@@ -19,12 +20,9 @@ aside {
   	margin: 0;
   }
   
+  
 .naranja {
 	 background-color:rgb(255, 193, 122);
-}
-
-.textoNaranja {
-	 text-decoration-color: rgb(255, 128, 64) ;
 }
 
 
