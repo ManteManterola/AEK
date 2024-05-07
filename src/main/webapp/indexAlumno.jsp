@@ -381,7 +381,7 @@
 														<input type="number" name="edad" value="${alumno.edad}" />
 
 														<p>
-															Curso: 
+															Curso: <br> 
 															<select name="idCurso">
 																<option value=0></option>
 																<c:forEach items="${cursos}"
