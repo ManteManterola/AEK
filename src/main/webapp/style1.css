@@ -3,10 +3,6 @@ a {
 
 }
 
-span {
-    color: rgb(255, 128, 64);
-}
-
 
 svg {
     color: rgb(255, 128, 64);
@@ -23,6 +19,7 @@ aside {
   input {
   	margin: 0;
   }
+  
   
 .naranja {
 	 background-color:rgb(255, 193, 122);
