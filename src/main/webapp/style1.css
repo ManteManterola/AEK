@@ -1,4 +1,5 @@
 
+
 a {
     text-decoration: none;
 }
@@ -6,12 +7,6 @@ a {
 
 svg {
     color: rgb(255, 128, 64);
-}
-
-aside {
-	position:fixed;
-    
-     
 }
 
 .hoverable:hover {

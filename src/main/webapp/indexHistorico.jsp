@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!doctype html>
-<html lang="es">
+<html class="bg-dark" lang="es">
 
 <head>
 <meta charset="utf-8">
@@ -34,8 +34,8 @@
 		<div class="row">
 
 			<!-- Barra lateral -->
-			<div class="col-2 bg-dark text-center">
-			<aside >
+			<div class="col-2 text-center bg-dark">
+			<aside>
 			
 				<!-- Lista del resto de campos -->
 				<ul class="list-group">
