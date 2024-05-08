@@ -25,7 +25,7 @@
 		<div class="row">
 			<nav class="navbar bg-dark navbar-expand-lg ">
 				<div class="container-fluid">
-					<a href="landingPage.jsp"><img src="imgs/logo-aek.png"
+					<a href="landingPage.jsp"><img class="ms-3" src="imgs/logo-aek.png"
 						width="30%" height="60%" alt="logo-aek"></a>
 				</div>
 			</nav>
@@ -34,8 +34,8 @@
 		<div class="row">
 
 			<!-- Barra lateral -->
-			<div class="col-2 text-center bg-dark">
-			<aside>
+			
+			<aside class="col-2 text-center bg-dark">
 
 
 
@@ -119,7 +119,7 @@
 
 				</ul>
 			</aside>
-			</div>
+			
 
 			<div class="col-10 mt-2">
 
