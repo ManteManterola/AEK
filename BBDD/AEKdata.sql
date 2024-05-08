@@ -28,6 +28,26 @@ INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('98765432X', 
 INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('45678912Q', 'Pedro', 'Sanchez', 21, 1);
 INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('78912345P', 'Laura', 'Martinez', 23, 3);
 INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('32165498L', 'Carlos', 'Lopez', 20, 2);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('11111111A', 'Ana', 'Garcia', 19, 1);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('22222222B', 'Pedro', 'Fernandez', 20, 2);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad, idCurso) VALUES ('33333333C', 'Luis', 'Rodriguez', 21, 3);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('44444444D', 'Maria', 'Lopez', 22);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('55555555E', 'Juan', 'Martinez', 23);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('66666666F', 'Laura', 'Sanchez', 24);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('77777777G', 'Carlos', 'Gonzalez', 25);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('88888888H', 'Ana', 'Perez', 26);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('99999999I', 'Pedro', 'Gomez', 27);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('10101010J', 'Luisa', 'Garcia', 28);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('12121212K', 'Marcos', 'Fernandez', 29);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('13131313L', 'Sara', 'Rodriguez', 30);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('14141414M', 'Javier', 'Lopez', 31);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('15151515N', 'Elena', 'Martinez', 32);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('16161616O', 'Pablo', 'Sanchez', 33);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('17171717P', 'Marina', 'Gonzalez', 34);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('18181818Q', 'Diego', 'Martinez', 35);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('19191919R', 'Laura', 'Lopez', 36);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('20202020S', 'Mario', 'Garcia', 37);
+INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('21212121T', 'Eva', 'Fernandez', 38);
 
 -- Eliminar todos los campos de programas
 DELETE FROM PROGRAMAS;

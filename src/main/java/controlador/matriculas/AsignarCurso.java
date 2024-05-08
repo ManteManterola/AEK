@@ -31,7 +31,7 @@ public class AsignarCurso extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	/**
@@ -43,12 +43,17 @@ public class AsignarCurso extends HttpServlet {
 		doGet(request, response);
 		// Obtener el ID del curso seleccionado
 		String idCurso = request.getParameter("idCurso");
-
-		// Obtener la lista de IDs de alumnos seleccionados
-		String[] alumnosSeleccionados = request.getParameterValues("alumnosSeleccionados");
 		
+		// Obtener la lista de IDs de alumnos seleccionados
+		String[] alumnosSeleccionados = request.getParameterValues("alumnosSeleccionados[]");
+		if(idCurso==null || alumnosSeleccionados==null) {}else {
+		//Matricular a los alumnos en el curso
 		ModeloAlumno modeloAlumno = new ModeloAlumno();
 		modeloAlumno.matricular(idCurso, alumnosSeleccionados);
+		}
+		// abrir lo que quiera, en mi caso inicio
+		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
+		response.sendRedirect("IndexMatriculas");
 	}
 
 }
