@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
 <meta charset="utf-8">
@@ -114,63 +114,70 @@
 			</div>
 
 			<div class="col-10 mt-2">
+				<form action="AsignarCurso" method=POST>
+					<!-- Atributos -->
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Inscribir</th>
+								<th scope="col">Dni</th>
+								<th scope="col">Nombre</th>
+								<th scope="col">Apellido</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
 
-				<!-- Atributos -->
-				<table class="table">
-					<thead>
-						<tr>
-							<th>SI/NO</th>
-							<th scope="col">Dni</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Apellido</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-
-						<!-- Datos -->
-
-						<form action="AsignCurso" method=post>
-							<p>
-								Asignatura <select name="idCurso">
-									<option value=0></option>
-									<c:forEach items="${cursos}" var="cursos">
-										<option ${cursos.id==alumno.curso.id ? 'selected' : '' }
-											value="${cursos.id}">${cursos.nivel}${cursos.turno}</option>
-									</c:forEach>
-								</select>
-							</p>
-
-							<c:forEach items="${alumnosNuevos}" var="alumnoNuevo">
-
-								<tr>
-									<td>
-										<div class="form-check">
-											<input class="form-check-input naranja" type="checkbox"
-												value="alumnoSeleccionado" id="flexCheckDefault"> <label
-												class="form-check-label" for="flexCheckDefault">  </label>
-										</div>
-									</td>
-									<td>${alumnoNuevo.dni}</td>
-									<td>${alumnoNuevo.nombre}</td>
-									<td>${alumnoNuevo.apellido}</td>
-
-									<td></td>
-
-								</tr>
-							</c:forEach>
+							<!-- Datos -->
 
 
+							<div>
+								<p>
+									Curso al que se inscribiran los alumnos seleccionados <select
+										name="idCurso">
+										<option value=0></option>
+										<c:forEach items="${cursos}" var="cursos">
+											<option ${cursos.id==alumno.curso.id ? 'selected' : '' }
+												value="${cursos.id}">${cursos.nivel}${cursos.turno}</option>
+										</c:forEach>
+									</select>
+								</p>
+							</div>
+							<div>
+								<c:forEach items="${alumnosNuevos}" var="alumnoNuevo">
 
-						</form>
-					</tbody>
+									<tr>
+										<td>
+											<div class="form-check">
+												<input class="form-check-input naranja" type="checkbox"
+													value="${alumnoNuevo.id}" id="flexCheckDefault"
+													name="alumnosSeleccionados[]"> <label
+													class="form-check-label" for="flexCheckDefault"> </label>
+											</div>
+										</td>
+										<td>${alumnoNuevo.dni}</td>
+										<td>${alumnoNuevo.nombre}</td>
+										<td>${alumnoNuevo.apellido}</td>
 
-				</table>
-				<div class="row">
+										<td></td>
 
-					<button type="submit" class="btn naranja btn-warning ">Guardar</button>
+									</tr>
+								</c:forEach>
+							</div>
+							<div>
 
-				</div>
+							</div>
+
+
+							</form>
+						</tbody>
+
+					</table>
+					
+						<button type="submit" class="btn naranja btn-warning ">
+										<strong>GUARDAR</strong>
+						</button>
+					
 			</div>
 		</div>
 
