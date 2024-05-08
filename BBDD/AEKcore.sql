@@ -119,5 +119,39 @@ ADD CONSTRAINT pk_historico PRIMARY KEY (fecha,idCurso);
 
 ALTER TABLE HISTORICO
 ADD CONSTRAINT fk_historico_curso FOREIGN KEY (idCurso) REFERENCES CURSOS(id);
+--------------------------------------------------------------------------------------------------
+-- CONSULTAS --
+-- Saca todos los alumnos que no tienen seguimiento --
+DELIMITER //
+CREATE PROCEDURE ALUMNOSSINSEGUIMIENTO()
 
+BEGIN
+SELECT ALUMNOS.*
+FROM ALUMNOS
+LEFT JOIN SEGUIMIENTOS ON ALUMNOS.id = SEGUIMIENTOS.idAlumno
+WHERE SEGUIMIENTOS.idAlumno IS NULL;
+END//
+DELIMITER ;
+CALL ALUMNOSSINSEGUIMIENTO()
 
+-- Saca la media de un grupo --
+DELIMITER //
+
+CREATE TRIGGER GENERARMEDIA
+    AFTER UPDATE
+    ON SEGUIMIENTOS FOR EACH ROW
+BEGIN
+    IF NEW.nota <> OLD.nota THEN
+		SET @idCurso = NULL;
+		SELECT idCurso INTO @idCurso FROM ALUMNOS WHERE id = NEW.idAlumno;
+		SET @mediaCalculada = NULL;
+		SELECT SUM(nota)/COUNT(nota) INTO @mediaCalculada FROM SEGUIMIENTOS WHERE idAlumno IN (SELECT id FROM ALUMNOS WHERE idCurso = @idCurso);
+		IF (SELECT idCurso FROM HISTORICO WHERE idCurso = @idCurso) IS NOT NULL THEN
+			UPDATE HISTORICO SET media = @mediaCalculada,fecha = current_date() WHERE idCurso = @idCurso;
+		ELSE
+			INSERT INTO HISTORICO (fecha,idCurso,media) VALUES (current_date(),@idCurso,@mediaCalculada);
+		END IF;
+    END IF;
+END//
+
+DELIMITER ;
