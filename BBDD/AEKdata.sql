@@ -49,6 +49,7 @@ INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('19191919R', 'Laura', 
 INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('20202020S', 'Mario', 'Garcia', 37);
 INSERT INTO ALUMNOS (dni, nombre, apellido, edad) VALUES ('21212121T', 'Eva', 'Fernandez', 38);
 
+
 -- Eliminar todos los campos de programas
 DELETE FROM PROGRAMAS;
 
@@ -56,16 +57,16 @@ DELETE FROM PROGRAMAS;
 INSERT INTO PROGRAMAS (contenido, criterioEvaluacion, idCurso) VALUES ('Unidad 1: Saludos y Presentaciones
 - Saludar y despedirse en euskera.
 - Presentarse a uno mismo y a otras personas.
-- Expresar gratitud y cortesÌa b·sica.
-- N˙meros del 1 al 10.
-- Vocabulario b·sico de personas y objetos.
+- Expresar gratitud y cortes√≠a b√°sica.
+- N√∫meros del 1 al 10.
+- Vocabulario b√°sico de personas y objetos.
 
 Unidad 2: En el Restaurante
 - Pedir comida y bebida en un restaurante.
 - Expresar preferencias y gustos.
 - Frases comunes para pedir y ofrecer ayuda.
 - Vocabulario relacionado con alimentos y bebidas.
-- Frases ˙tiles para interactuar con el camarero.
+- Frases √∫tiles para interactuar con el camarero.
 
 Unidad 3: Rutinas Diarias
 - Hablar sobre actividades diarias y rutinas.
@@ -79,36 +80,36 @@ Unidad 4: De Compras
 - Expresar precios y cantidades.
 - Vocabulario de ropa, colores y tallas.
 - Expresiones para hablar sobre preferencias y necesidades.
-- Frases ˙tiles para negociar y hacer compras.', 
+- Frases √∫tiles para negociar y hacer compras.', 
 
-'ComprensiÛn Auditiva:
+'Comprensi√≥n Auditiva:
 
-- Entender instrucciones b·sicas y preguntas simples en euskera.
--Reconocer palabras y frases comunes en di·logos lentos y claros.
+- Entender instrucciones b√°sicas y preguntas simples en euskera.
+-Reconocer palabras y frases comunes en di√°logos lentos y claros.
 
-ExpresiÛn Oral:
+Expresi√≥n Oral:
 
 -Presentarse y describirse de manera simple en euskera.
--Usar frases b·sicas para comunicarse en situaciones cotidianas, como saludar, pedir ayuda o hacer preguntas sencillas.
+-Usar frases b√°sicas para comunicarse en situaciones cotidianas, como saludar, pedir ayuda o hacer preguntas sencillas.
 
-ComprensiÛn Lectora:
+Comprensi√≥n Lectora:
 
 -Comprender mensajes cortos y simples en carteles, anuncios o instrucciones escritas.
--Identificar informaciÛn b·sica en textos breves y familiares.
+-Identificar informaci√≥n b√°sica en textos breves y familiares.
 
-ExpresiÛn Escrita:
+Expresi√≥n Escrita:
 
 -Escribir frases y mensajes cortos utilizando vocabulario y estructuras gramaticales aprendidas en el curso.
--Transmitir informaciÛn b·sica de manera clara y comprensible.
+-Transmitir informaci√≥n b√°sica de manera clara y comprensible.
 
-InteracciÛn Oral:
+Interacci√≥n Oral:
 
 -Participar en conversaciones simples y breves en euskera.
--Ser capaz de realizar intercambios b·sicos en situaciones pr·cticas, como pedir comida en un restaurante o dar direcciones.
+-Ser capaz de realizar intercambios b√°sicos en situaciones pr√°cticas, como pedir comida en un restaurante o dar direcciones.
 
 Cultura y Conciencia Cultural:
 
--Mostrar un conocimiento b·sico de la cultura vasca y sus tradiciones.
+-Mostrar un conocimiento b√°sico de la cultura vasca y sus tradiciones.
 -Reconocer algunos aspectos culturales relevantes en el uso del lenguaje y las interacciones sociales en el contexto vasco.', 1);
 INSERT INTO PROGRAMAS (contenido, criterioEvaluacion, idCurso) VALUES ('A ver eso de ahi', 'Aqui no hay nada', 2);
 
@@ -123,38 +124,4 @@ INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (
 INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (3, 'Alta', 'Sobresaliente', 5);
 
 ----------------------------------------------------------------------------------------------------------------------------
--- CONSULTAS --
--- Saca todos los alumnos que no tienen seguimiento --
-DELIMITER //
-CREATE PROCEDURE ALUMNOSSINSEGUIMIENTO()
 
-BEGIN
-SELECT ALUMNOS.*
-FROM ALUMNOS
-LEFT JOIN SEGUIMIENTOS ON ALUMNOS.id = SEGUIMIENTOS.idAlumno
-WHERE SEGUIMIENTOS.idAlumno IS NULL;
-END//
-DELIMITER ;
-CALL ALUMNOSSINSEGUIMIENTO()
-
--- Saca la media de un grupo --
-DELIMITER //
-
-CREATE TRIGGER GENERARMEDIA
-    AFTER UPDATE
-    ON SEGUIMIENTOS FOR EACH ROW
-BEGIN
-    IF NEW.nota <> OLD.nota THEN
-		SET @idCurso = NULL;
-		SELECT idCurso INTO @idCurso FROM ALUMNOS WHERE id = NEW.idAlumno;
-		SET @mediaCalculada = NULL;
-		SELECT SUM(nota)/COUNT(nota) INTO @mediaCalculada FROM SEGUIMIENTOS WHERE idAlumno IN (SELECT id FROM ALUMNOS WHERE idCurso = @idCurso);
-		IF (SELECT idCurso FROM HISTORICO WHERE idCurso = @idCurso) IS NOT NULL THEN
-			UPDATE HISTORICO SET media = @mediaCalculada,fecha = current_date() WHERE idCurso = @idCurso;
-		ELSE
-			INSERT INTO HISTORICO (fecha,idCurso,media) VALUES (current_date(),@idCurso,@mediaCalculada);
-		END IF;
-    END IF;
-END//
-
-DELIMITER ;
