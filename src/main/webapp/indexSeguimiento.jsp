@@ -34,7 +34,8 @@
 		<div class="row">
 
 			<!-- Barra lateral -->
-			<aside class="col-2 bg-dark text-center">
+			<div class="col-2 bg-dark text-center">
+			<aside>
 
 
 
@@ -118,6 +119,7 @@
 
 				</ul>
 			</aside>
+			</div>
 
 			<div class="col-10 mt-2">
 

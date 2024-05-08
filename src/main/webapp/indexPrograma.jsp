@@ -20,7 +20,7 @@
 
 <body class="bg-light-subtle">
 
-	<div class="container-fluid">
+	<div>
 
 		<div class="row">
 			<nav class="navbar bg-dark navbar-expand-lg ">
@@ -34,7 +34,8 @@
 		<div class="row">
 
 			<!-- Barra lateral -->
-			<aside class="col-2 bg-dark text-center">
+			<div class="col-2 text-center">
+			<aside class="bg-dark">
 
 
 				<!-- Lista del resto de campos -->
@@ -112,6 +113,7 @@
 
 				</ul>
 			</aside>
+			</div>
 
 			<div class="col-10 mt-2">
 
