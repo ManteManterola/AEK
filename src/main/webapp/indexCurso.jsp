@@ -22,7 +22,7 @@
         <div class="row">
             <nav class="navbar bg-dark navbar-expand-lg ">
                 <div class="container-fluid">
-                      <a href="landingPage.jsp"><img src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
+                      <a href="landingPage.jsp"><img class="ms-3" src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
                 </div>
             </nav>
         </div>
@@ -31,9 +31,8 @@
 
             <!-- Barra lateral -->
             
-            <div class="col-2 text-center bg-dark">
-			<aside>
-                
+           
+			<aside class="col-2 text-center bg-dark"> 
 
                 <!-- Lista del resto de campos -->
                 <ul class="list-group">
@@ -104,7 +103,7 @@
 
                 </ul>
             </aside>
-            </div>
+           
 
             <div class="col-10 mt-2">
             
@@ -129,20 +128,21 @@
                             <div class="modal-body">
                                 <form action="StoreCursos" method="post">
                                     <p>Nivel: <select name="nivel">
-											<option value="0"></option>
-											<c:forEach items="${cursos}"
-												var="cursos">
-												<option value="${cursos.nivel}">${cursos.nivel}</option>
-											</c:forEach>
+                                    		<option value=0></option>
+											<option value="A1">A1</option>
+											<option value="A2">A2</option>
+											<option value="B1">B1</option>
+											<option value="B2">B2</option>
+											<option value="C1">C1</option>
+											<option value="C2">C2</option>
 										</select>
 										
 										</p>
                                     <p>Turno: <select name="turno">
-											<option value="0"></option>
-											<c:forEach items="${cursos}"
-												var="cursos">
-												<option value="${cursos.turno}">${cursos.turno}</option>
-											</c:forEach>
+											<option value=0></option>
+											<option value="Diurno">Diurno</option>
+											<option value="Vespertino">Vespertino</option>
+											<option value="Nocturno">Nocturno</option>
 										</select>
 										
 										</p>

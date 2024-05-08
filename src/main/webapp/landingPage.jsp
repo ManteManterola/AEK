@@ -19,14 +19,14 @@
 
             <nav class="navbar bg-dark navbar-expand-lg ">
                 <div class="container-fluid">
-                    <img src="imgs/logo-aek.png" width="5%" alt="logo-aek">
+                    <img class="ms-3" src="imgs/logo-aek.png" width="5%" alt="logo-aek">
                 </div>
             </nav>
 
         </header>
         <main class="row text-center ">
             <div class="col-lg-6  col-md-12 mt-5 mb-5">
-                <img src="imgs/web.jpg" width="105%" alt="equipo aek">
+                <img class="ms-3" src="imgs/web.jpg" width="105%" alt="equipo aek">
             </div>
 
             <div class="col-lg-6 col-md-12 mt-5 mb-5">
