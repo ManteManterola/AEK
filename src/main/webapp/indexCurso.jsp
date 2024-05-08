@@ -4,7 +4,7 @@
     <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
     
 <!doctype html>
-<html lang="en">
+<html class="bg-dark" lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
 
 <body class="bg-light-subtle">
 
-    <div class="container-fluid">
+    <div>
 
         <div class="row">
             <nav class="navbar bg-dark navbar-expand-lg ">
@@ -30,7 +30,9 @@
         <div class="row">
 
             <!-- Barra lateral -->
-            <aside class="col-2 bg-dark text-center">
+            
+            <div class="col-2 text-center bg-dark">
+			<aside>
                 
 
                 <!-- Lista del resto de campos -->
@@ -102,6 +104,7 @@
 
                 </ul>
             </aside>
+            </div>
 
             <div class="col-10 mt-2">
             
@@ -125,15 +128,32 @@
                             </div>
                             <div class="modal-body">
                                 <form action="StoreCursos" method="post">
-                                    <p>Nivel: <input type="text" name="nivel" /></p>
-                                    <p>Turno: <input type="text" name="turno" /></p>
+                                    <p>Nivel: <select name="nivel">
+											<option value="0"></option>
+											<c:forEach items="${cursos}"
+												var="cursos">
+												<option value="${cursos.nivel}">${cursos.nivel}</option>
+											</c:forEach>
+										</select>
+										
+										</p>
+                                    <p>Turno: <select name="turno">
+											<option value="0"></option>
+											<c:forEach items="${cursos}"
+												var="cursos">
+												<option value="${cursos.turno}">${cursos.turno}</option>
+											</c:forEach>
+										</select>
+										
+										</p>
                                     <p>Profesor: <select name="idProfesor">
 											<option value="0"></option>
 											<c:forEach items="${profesores}"
 												var="profesores">
 												<option value="${profesores.id}">${profesores.dni} | ${profesores.nombre} ${profesores.apellido}</option>
 											</c:forEach>
-										</select></p>
+										</select>
+										</p>
 
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
