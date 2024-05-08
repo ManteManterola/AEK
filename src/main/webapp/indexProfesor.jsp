@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!doctype html>
-<html lang="en">
+<html class="bg-dark" lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
 </head>
 
 <body class="bg-light-subtle">
-    <div class="container-fluid">
+    <div>
 
         <div class="row">
             <nav class="navbar bg-dark navbar-expand-lg ">
@@ -28,7 +28,8 @@
         <div class="row">
 
             <!-- Barra lateral -->
-            <aside class="col-2 bg-dark text-center">
+            <div class="col-2 text-center bg-dark">
+			<aside>
                 
 
                 <!-- Lista del resto de campos -->
@@ -101,8 +102,9 @@
 
                 </ul>
             </aside>
+            </div>
 
-            <div class="col-10 mt-2">
+            <div class="col-10 mt-2 ">
 
                 <!-- boton crear Profesor -->
                 <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#crearProfesor">

@@ -1,15 +1,12 @@
+
+
 a {
     text-decoration: none;
-
 }
 
 
 svg {
     color: rgb(255, 128, 64);
-}
-
-aside {
-    height: 955px;
 }
 
 .hoverable:hover {
@@ -29,7 +26,6 @@ aside {
 .activo {
 	 background-color:rgb(255, 193, 122);
 }
-
 
 
 @media (max-width: 750px) {
