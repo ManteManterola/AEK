@@ -251,10 +251,44 @@
                                                 <div class="modal-body">
                                                     <form action="UpdateCursos" method="POST">
                                                         <input type="hidden" name="id" value="${curso.id}" />
-                                                        <p class="mb-0"> Nivel:</p> <input type="text" name="nivel"
-                                                            value="${curso.nivel}" />
-                                                        <p class="mb-0"> Turno:</p> <input type="text" name="turno"
-                                                            value="${curso.turno}" />
+                                                        <p class="mb-0"> Nivel:</p> 
+                                                        <select name="nivel">
+															<option value="A1"
+																${curso.nivel=='A1' ? 'selected'
+																		: '' }>A1</option>
+															<option value="A2"
+																${curso.nivel=='A2'
+																		? 'selected' : '' }>A2</option>
+															<option value="B1"
+																${curso.nivel=='B1' ? 'selected'
+																		: '' }>B1</option>
+																		
+															<option value="B2"
+																${curso.nivel=='B2' ? 'selected'
+																		: '' }>B2</option>
+															<option value="C1"
+																${curso.nivel=='C1'
+																		? 'selected' : '' }>C1</option>
+															<option value="C2"
+																${curso.nivel=='C2' ? 'selected'
+																		: '' }>C2</option>
+														</select>
+													
+                                                        
+                                                        <p class="mb-0"> Turno:</p>
+                                                         <select name="turno">
+															<option value="Diurno"
+																${curso.turno=='Diurno' ? 'selected'
+																		: '' }>Diurno</option>
+															<option value="Vespertino"
+																${curso.turno=='Vespertino'
+																		? 'selected' : '' }>Vespertino</option>
+															<option value="Nocturno"
+																${curso.turno=='Nocturno' ? 'selected'
+																		: '' }>Nocturno</option>
+														</select>
+                                                            
+                                                            
                                                         <p class="mb-0"> Profesor :<br> <select name="idProfesor">
 																<option value=0></option>
 																<c:forEach items="${profesores}"

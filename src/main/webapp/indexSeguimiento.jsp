@@ -25,8 +25,8 @@
 		<div class="row">
 			<nav class="navbar bg-dark navbar-expand-lg ">
 				<div class="container-fluid">
-					<a href="landingPage.jsp"><img class="ms-3" src="imgs/logo-aek.png"
-						width="30%" height="60%" alt="logo-aek"></a>
+					<a href="landingPage.jsp"><img class="ms-3"
+						src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
 				</div>
 			</nav>
 		</div>
@@ -34,7 +34,7 @@
 		<div class="row">
 
 			<!-- Barra lateral -->
-			
+
 			<aside class="col-2 text-center bg-dark">
 
 
@@ -78,17 +78,17 @@
 										<path
 									d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
 										<path
-
 									d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
 									</svg></li>
 					</a>
 
-					
 
-							<a href="IndexProgramas">
-								<li class="list-group-item hoverable"><span class="desaparece">Programas</span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-										class="bi bi-book-half" viewBox="0 0 16 16">
+
+					<a href="IndexProgramas">
+						<li class="list-group-item hoverable"><span
+							class="desaparece">Programas</span> <svg
+								xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+								fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
 
 										<path
 									d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
@@ -105,7 +105,7 @@
 									d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a2 2 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3m-8.322.12q.322-.119.684-.12h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981z" />
 									</svg></li>
 					</a>
-					
+
 					<a href="IndexHistoricos">
 						<li class="list-group-item hoverable"><span
 							class="desaparece">Historico</span> <svg
@@ -113,13 +113,14 @@
 								fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
   								<path
 									d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z" />
-  								<path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z" />
+  								<path
+									d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z" />
 																</svg></li>
 					</a>
 
 				</ul>
 			</aside>
-			
+
 
 			<div class="col-10 mt-2">
 
@@ -223,8 +224,10 @@
 						<!-- Datos -->
 						<c:forEach items="${seguimientos}" var="seguimiento">
 							<tr>
-								<td>${seguimiento.alumno.nombre} ${seguimiento.alumno.apellido}</td>
-								<td>${seguimiento.alumno.curso.nivel} ${seguimiento.alumno.curso.turno}</td>
+								<td>${seguimiento.alumno.nombre}
+									${seguimiento.alumno.apellido}</td>
+								<td>${seguimiento.alumno.curso.nivel}
+									${seguimiento.alumno.curso.turno}</td>
 								<td>${seguimiento.faltas}</td>
 								<td>${seguimiento.participacion}</td>
 								<td>${seguimiento.rendimiento}</td>
@@ -308,9 +311,11 @@
 													<form action="UpdateSeguimientos" method="POST">
 														<input type="hidden" name="idAlumno"
 															value="${seguimiento.alumno.id}" />
+															
 														<p class="mb-0">Faltas:</p>
 														<input type="text" name="faltas"
 															value="${seguimiento.faltas}" />
+															
 														<p class="mb-0">Participacion:</p>
 														<select name="participacion">
 															<option value="Baja"
