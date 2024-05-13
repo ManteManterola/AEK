@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="landingStyle.css">
 </head>
 
-<body>
+<body class="bg-dark">
     <div>
 
         <header class="row">
@@ -26,7 +26,7 @@
         </header>
         <main class="row text-center ">
             <div class="col-lg-6  col-md-12 mt-5 mb-5">
-                <img class="ms-3" src="imgs/web.jpg" width="105%" alt="equipo aek">
+                <img src="imgs/web.jpg" width="105%" alt="equipo aek">
             </div>
 
             <div class="col-lg-6 col-md-12 mt-5 mb-5">
@@ -38,7 +38,7 @@
                     Unete a nosotros y mejora tu euskera
                 </h2>
                
-               <a href="IndexCursos"> <button type="button" class="btn btn-secondary btn-lg mt-5"> ENTRAR</button></a>
+               <a class="btn btn-secondary btn-lg mt-5" href="IndexCursos"> ENTRAR</a>
                
                
             </div>
