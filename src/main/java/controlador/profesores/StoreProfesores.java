@@ -60,7 +60,7 @@ public class StoreProfesores extends HttpServlet {
 			modeloProfesor.insertarProfesor(profesor);
 			response.sendRedirect("IndexProfesores?msg=insertOk");
 		} else if (Validator.validarDni(dni)==false){
-			response.sendRedirect("IndexProfesores?msg=errorFormatoDniIsnert");
+			response.sendRedirect("IndexProfesores?msg=errorFormatoDniInsert");
 		} else {
 			response.sendRedirect("IndexProfesores?msg=errorDniRepetidoInsert");
 		}

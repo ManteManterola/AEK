@@ -25,18 +25,27 @@
 		<div class="row">
 			<nav class="navbar bg-dark navbar-expand-lg ">
 				<div class="container-fluid">
-					<a href="landingPage.jsp"><img class="ms-3" src="imgs/logo-aek.png"
-						width="30%" height="60%" alt="logo-aek"></a>
+					<a href="landingPage.jsp"><img class="ms-3"
+						src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
 				</div>
 			</nav>
 		</div>
 
 		<div class="row">
 
+			<c:if test="${msg=='deleteOk'}">
+				<div class="alert alert-success alert-dismissible fade show m-0"
+					role="alert">
+					<strong>Ok!</strong> El historico se elimino correctamente.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
+
 			<!-- Barra lateral -->
-			
+
 			<aside class="col-2 text-center bg-dark">
-			
+
 				<!-- Lista del resto de campos -->
 				<ul class="list-group">
 					<a href="IndexProfesores">
@@ -111,7 +120,7 @@
 
 				</ul>
 			</aside>
-			
+
 
 			<div class="col-10 mt-2">
 
@@ -136,11 +145,7 @@
 								<td>${historico.curso.turno}</td>
 								<td>${historico.media}</td>
 								<td>
-									</div>
-									
-									 <!-- boton eliminar -->
-									 
-									  <a class="btn btn-light"
+									</div> <!-- boton eliminar --> <a class="btn btn-light"
 									href="DestroyHistoricos?idCurso=${historico.curso.id}"><svg
 											xmlns="http://www.w3.org/2000/svg" width="25" height="25"
 											fill="currentColor" class="bi bi-backspace-reverse"

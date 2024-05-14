@@ -48,9 +48,9 @@ public class ModeloPrograma extends Conector {
 	}
 
 
-	public void insert(Programa programa) {
+	public boolean insert(Programa programa) {
 		
-String sql = "INSERT INTO PROGRAMAS (contenido,criterioEvaluacion,idCurso) VALUES (?,?,?)";
+		String sql = "INSERT INTO PROGRAMAS (contenido,criterioEvaluacion,idCurso) VALUES (?,?,?)";
 		
 		PreparedStatement pst;
 		
@@ -61,11 +61,11 @@ String sql = "INSERT INTO PROGRAMAS (contenido,criterioEvaluacion,idCurso) VALUE
 			pst.setString(2, programa.getCriterioEvaluacion());
 			pst.setInt(3, programa.getCurso().getId());
 			
-			
-			
 			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
 		
 	}
