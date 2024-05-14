@@ -9,28 +9,31 @@ public class ModeloCurso extends Conector{
 	ModeloProfesor modeloProfesor = new ModeloProfesor();
 
 	public ArrayList<Curso> getAll() {
-		ArrayList<Curso> cursos = new ArrayList<>();
-		String sql = "SELECT * FROM CURSOS";
-		
-		try {
-			ResultSet rs = conexion.createStatement().executeQuery(sql);
-			
-			while(rs.next()) {
-				Curso curso = new Curso();
-				
-				curso.setId(rs.getInt("id"));
-				curso.setNivel(rs.getString("nivel"));
-				curso.setTurno(rs.getString("turno"));
-				curso.setProfesor(modeloProfesor.get(rs.getInt("idProfesor")));
-				cursos.add(curso);
-			}
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-		
-		return cursos;
+	    ArrayList<Curso> cursos = new ArrayList<>();
+	    String sql = "SELECT * FROM CURSOS";
+	    
+	    try {
+	        PreparedStatement pst = conexion.prepareStatement(sql);
+	        ResultSet rs = pst.executeQuery();
+	        
+	        while (rs.next()) {
+	            Curso curso = new Curso();
+	            
+	            curso.setId(rs.getInt("id"));
+	            curso.setNivel(rs.getString("nivel"));
+	            curso.setTurno(rs.getString("turno"));
+	            curso.setProfesor(modeloProfesor.get(rs.getInt("idProfesor")));
+	            cursos.add(curso);
+	        }
+	        
+	        pst.close(); // Cerrar PreparedStatement cuando haya terminado
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return cursos;
 	}
+
 	
 	public Curso get(int id) {
 		try {

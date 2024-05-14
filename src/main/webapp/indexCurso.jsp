@@ -30,8 +30,7 @@
         <div class="row">
 
             <!-- Barra lateral -->
-            
-           
+
 			<aside class="col-2 text-center bg-dark"> 
 
                 <!-- Lista del resto de campos -->
