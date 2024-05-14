@@ -56,11 +56,11 @@ public class UpdateCursos extends HttpServlet {
 		curso.setProfesor(modeloProfesor.get(idProfesor));
 
 		ModeloCurso modeloCurso = new ModeloCurso();
-		modeloCurso.update(curso);
-
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexCursos");
+		if(modeloCurso.update(curso) == 0) {
+			response.sendRedirect("IndexCursos?msg=editError");
+		} else {
+			response.sendRedirect("IndexCursos?msg=editOk");
+		}
 	}
 
 }

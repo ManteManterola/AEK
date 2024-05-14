@@ -33,6 +33,7 @@ public class IndexMatriculas extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("msg", request.getParameter("msg"));
 		
 		ArrayList<Alumno> alumnosNuevos = new ModeloAlumno().getAlumnosNuevos();
 		ArrayList<Curso> cursos = new ModeloCurso().getAll();

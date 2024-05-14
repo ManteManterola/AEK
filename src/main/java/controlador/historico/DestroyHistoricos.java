@@ -31,13 +31,11 @@ public class DestroyHistoricos extends HttpServlet {
 		//recibir la id
 		int id = Integer.parseInt(request.getParameter("idCurso"));
 		
-		//eliminar el seguimiento
+		//eliminar el historico
 		ModeloHistorico modeloHistorico = new ModeloHistorico();
 		modeloHistorico.delete(id);
 		
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexHistoricos");
+		response.sendRedirect("IndexHistoricos?msg=deleteOk");
 	}
 
 	/**

@@ -88,7 +88,7 @@ public class ModeloCurso extends Conector{
 		}
 	}
 	
-	public void insert(Curso curso) {
+	public boolean insert(Curso curso) {
 		String sql = "INSERT INTO CURSOS (nivel,turno,idProfesor) VALUES (?,?,?)";
 		
 		PreparedStatement pst;
@@ -100,9 +100,10 @@ public class ModeloCurso extends Conector{
 			pst.setInt(3, curso.getProfesor().getId());
 			
 			pst.execute();
+			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
 		
 		
