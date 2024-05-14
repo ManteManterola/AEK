@@ -44,7 +44,7 @@
             </div>
         </main>
 
-        <footer class="row bg-dark text-center sticky-xl-bottom mt-4">
+        <footer class="row bg-dark text-center mt-4">
             <div class="col-12 md">
                 <a href="https://www.instagram.com/aek_korrika/"><svg xmlns="http://www.w3.org/2000/svg" width="32"
                         height="32" fill="#ff6224" class="bi bi-instagram m-2" viewBox="0 0 16 16">
