@@ -39,6 +39,7 @@
 				</div>
 			</c:if>
 
+
 			<c:if test="${msg=='deleteError'}">
 				<div class="alert alert-danger alert-dismissible fade show m-0"
 					role="alert">
@@ -51,6 +52,7 @@
 			<!-- Barra lateral -->
             
            
+
 			<aside class="col-2 text-center bg-dark"> 
 
                 <!-- Lista del resto de campos -->
