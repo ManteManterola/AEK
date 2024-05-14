@@ -27,6 +27,10 @@
 				<div class="container-fluid">
 					<a href="landingPage.jsp"><img class="ms-3"
 						src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
+					<!-- Boton de matriculacion -->
+
+					<a class="btn btn-outline-warning" style="margin-right: 20px"
+						href="IndexMatriculas"> MATRICULAR ALUMNOS</a>
 				</div>
 			</nav>
 		</div>
@@ -83,7 +87,8 @@
 			<c:if test="${msg=='editError'}">
 				<div class="alert alert-danger alert-dismissible fade show m-0"
 					role="alert">
-					<strong>Error:</strong> El curso en el que lo quieres convertir ya existe.
+					<strong>Error:</strong> El curso en el que lo quieres convertir ya
+					existe.
 					<button type="button" class="btn-close" data-bs-dismiss="alert"
 						aria-label="Close"></button>
 				</div>

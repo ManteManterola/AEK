@@ -27,6 +27,10 @@
 				<div class="container-fluid">
 					<a href="landingPage.jsp"><img class="ms-3"
 						src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
+
+					<!-- Boton de matriculacion -->
+					<a class="btn btn-outline-warning" style="margin-right: 20px"
+						href="IndexMatriculas"> MATRICULAR ALUMNOS</a>
 				</div>
 			</nav>
 		</div>
@@ -50,15 +54,15 @@
 						aria-label="Close"></button>
 				</div>
 			</c:if>
-			
+
 			<c:if test="${msg=='deleteOk'}">
-			<div class="alert alert-success alert-dismissible fade show m-0"
-				role="alert">
-				<strong>Ok!</strong> El programa se elimino correctamente.
-				<button type="button" class="btn-close" data-bs-dismiss="alert"
-					aria-label="Close"></button>
-			</div>
-		</c:if>
+				<div class="alert alert-success alert-dismissible fade show m-0"
+					role="alert">
+					<strong>Ok!</strong> El programa se elimino correctamente.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
 			<!-- Barra lateral -->
 
 			<aside class="col-2 text-center bg-dark">
@@ -216,7 +220,7 @@
 						<!-- Datos -->
 						<c:forEach items="${programas}" var="programa">
 							<tr>
-								<td>${programa.curso.nivel} ${programa.curso.turno}</td>
+								<td>${programa.curso.nivel}${programa.curso.turno}</td>
 								<td>
 									<!-- boton ver contenido -->
 

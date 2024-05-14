@@ -25,6 +25,10 @@
 				<div class="container-fluid">
 					<a href="landingPage.jsp"><img class="ms-3"
 						src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
+
+					<!-- Boton de matriculacion -->
+					<a class="btn btn-outline-warning" style="margin-right: 20px"
+						href="IndexMatriculas"> MATRICULAR ALUMNOS</a>
 				</div>
 			</nav>
 		</div>

@@ -25,7 +25,7 @@
 
                     <!-- Boton de matriculacion -->
 
-                    <a class="btn btn-outline-warning" href="IndexMatriculas"> MATRICULAR</a>
+                    <a class="btn btn-outline-warning" style="margin-right:20px" href="IndexMatriculas"> MATRICULAR ALUMNOS</a>
 
                 </div>
         </div>
