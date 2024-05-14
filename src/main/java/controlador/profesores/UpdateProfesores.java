@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloProfesor;
 import modelo.Profesor;
+import modelo.Validator;
 
 /**
  * Servlet implementation class UpdateProfesor
@@ -55,11 +56,20 @@ public class UpdateProfesores extends HttpServlet {
 		profesor.setApellido(apellido);
 
 		ModeloProfesor modeloProfesor = new ModeloProfesor();
-		modeloProfesor.update(profesor);
+		
+		if(modeloProfesor.checkDniNoHaCambiado(profesor)==true) {
+			modeloProfesor.update(profesor);
+			response.sendRedirect("IndexProfesores?msg=editOk");
+		} else if (Validator.validarDni(dni)==true && modeloProfesor.checkDniRepetido(dni)==false) {
+			modeloProfesor.update(profesor);
+			response.sendRedirect("IndexProfesores?msg=editOk");
+		} else if (Validator.validarDni(dni)==false) {
+			response.sendRedirect("IndexProfesores?msg=errorFormatoDniEdit");
+		} else {
+			response.sendRedirect("IndexProfesores?msg=errorDniRepetidoEdit");
+		}
 
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexProfesores");
+		
 	}
 
 }

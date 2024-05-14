@@ -35,11 +35,15 @@ public class DestroyCursos extends HttpServlet {
 
 		// eliminar el curso
 		ModeloCurso modeloCurso = new ModeloCurso();
-		modeloCurso.delete(id);
+		if(modeloCurso.tieneAlgunAlumno(id)==true) {
+			response.sendRedirect("IndexCursos?msg=deleteError");
+		} else {
+			// eliminar el curso
+			modeloCurso.delete(id);
+			response.sendRedirect("IndexCursos?msg=deleteOk");
+		}
 
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexCursos");
+		
 	}
 
 	/**

@@ -63,9 +63,10 @@ public class ModeloProfesor extends Conector {
 			pst.setString(3, profesor.getApellido());
 
 			pst.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
+		} catch (SQLException e) {	
 			e.printStackTrace();
+		
 		}
 	}
 
@@ -76,8 +77,8 @@ public class ModeloProfesor extends Conector {
 			PreparedStatement pst = conexion.prepareStatement(sql);
 			pst.setInt(1, id);
 			pst.execute();
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -115,11 +116,63 @@ public class ModeloProfesor extends Conector {
 				return false;
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return true;
 
+	}
+	
+	public boolean checkDniRepetido(String dni) {
+		try {
+			PreparedStatement pst = this.conexion.prepareStatement("SELECT * FROM PROFESORES WHERE dni=?");
+			pst.setString(1, dni);
+			ResultSet rs = pst.executeQuery();
+			
+			if (rs.next()) {
+				return true;
+
+			}
+
+			else {
+				return false;
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return true;
+	}
+	
+	public boolean checkDniNoHaCambiado (Profesor profesor) {
+		try {
+			String dniViejo = "";
+			PreparedStatement pst = this.conexion.prepareStatement("SELECT dni FROM PROFESORES WHERE id=?");
+			pst.setInt(1, profesor.getId());
+			
+			// Ejecutar la consulta SQL y obtener el resultado
+	        ResultSet rs = pst.executeQuery();
+	        
+	        // Verificar si se obtuvo un resultado
+	        if (rs.next()) {
+	            // Obtener el DNI del resultado y almacenarlo en la variable dniViejo
+	            dniViejo = rs.getString("dni");
+	        }
+	        
+	        // Verificar si el DNI viejo es igual al DNI del profesor
+	        if (dniViejo != null && dniViejo.equals(profesor.getDni())) {
+	            // El DNI no ha cambiado
+	            return true;
+	        } else {
+	            // El DNI ha cambiado
+	            return false;
+	        }
+	        
+	        
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

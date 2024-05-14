@@ -34,22 +34,14 @@ public class DestroyProfesores extends HttpServlet {
 
 		// recibir la id
 		int idProfesor = Integer.parseInt(request.getParameter("id"));
-		if (modeloProfesor.imparteAlgunCurso(idProfesor)) {
-			
-			request.getRequestDispatcher("error.jsp").forward(request, response);
-		}
 		
-		else {
-			
+		if (modeloProfesor.imparteAlgunCurso(idProfesor)==true) {
+			response.sendRedirect("IndexProfesores?msg=deleteError");
+		} else {
 			// eliminar el profesor
 			modeloProfesor.deleteProfesor(idProfesor);
+			response.sendRedirect("IndexProfesores?msg=deleteOk");
 		}
-
-		
-
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexProfesores");
 	}
 
 	/**
