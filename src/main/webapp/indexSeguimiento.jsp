@@ -33,6 +33,43 @@
 
 		<div class="row">
 
+			<!-- Mensajes de resultado -->
+			<c:if test="${msg=='insertOk'}">
+				<div class="alert alert-success alert-dismissible fade show m-0"
+					role="alert">
+					<strong>Ok!</strong> Seguimiento creado correctamente.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
+			
+			<c:if test="${msg=='insertError'}">
+				<div class="alert alert-danger alert-dismissible fade show m-0"
+					role="alert">
+					<strong>Error:</strong> El formato de las faltas es incorrecto asegurate de que sea un <strong>numero entero</strong>.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
+			
+			<c:if test="${msg=='editOk'}">
+				<div class="alert alert-success alert-dismissible fade show m-0"
+					role="alert">
+					<strong>Ok!</strong> Seguimiento editado correctamente.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
+
+			<c:if test="${msg=='editError'}">
+				<div class="alert alert-danger alert-dismissible fade show m-0"
+					role="alert">
+					<strong>Error al editar:</strong> El formato de las faltas es incorrecto
+					asegurate de que sea un <strong>numero entero</strong>.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
 			<!-- Barra lateral -->
 
 			<aside class="col-2 text-center bg-dark">
@@ -311,11 +348,11 @@
 													<form action="UpdateSeguimientos" method="POST">
 														<input type="hidden" name="idAlumno"
 															value="${seguimiento.alumno.id}" />
-															
+
 														<p class="mb-0">Faltas:</p>
 														<input type="text" name="faltas"
 															value="${seguimiento.faltas}" />
-															
+
 														<p class="mb-0">Participacion:</p>
 														<select name="participacion">
 															<option value="Baja"

@@ -33,6 +33,7 @@ public class IndexSeguimientos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("msg", request.getParameter("msg"));
 		
 		ArrayList<Seguimiento> seguimientos = new ModeloSeguimiento().getAll();
 		ArrayList<Alumno> alumnosSinSeguimiento = new ModeloAlumno().alumnosSinSeguimiento();

@@ -55,7 +55,7 @@ public class StoreProfesores extends HttpServlet {
 
 		ModeloProfesor modeloProfesor = new ModeloProfesor();
 
-		// enviar mensaje de respuesta
+		// enviar mensaje de respuesta y decidir si insertar o no
 		if(Validator.validarDni(dni)==true && modeloProfesor.checkDniRepetido(dni)==false) {
 			modeloProfesor.insertarProfesor(profesor);
 			response.sendRedirect("IndexProfesores?msg=insertOk");
