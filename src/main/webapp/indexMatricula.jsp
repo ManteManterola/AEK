@@ -23,16 +23,35 @@
 		<div class="row">
 			<nav class="navbar bg-dark navbar-expand-lg ">
 				<div class="container-fluid">
-					<a href="landingPage.jsp"><img class="ms-3" src="imgs/logo-aek.png"
-						width="30%" height="60%" alt="logo-aek"></a>
+					<a href="landingPage.jsp"><img class="ms-3"
+						src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
 				</div>
 			</nav>
 		</div>
 
 		<div class="row">
 
+
+			<c:if test="${msg=='insertOk'}">
+				<div class="alert alert-success alert-dismissible fade show m-0"
+					role="alert">
+					<strong>Ok!</strong> Alumno/s matriculados correctamente.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
+
+			<c:if test="${msg=='insertError'}">
+				<div class="alert alert-danger alert-dismissible fade show m-0"
+					role="alert">
+					<strong>Error:</strong> Elige un curso para asignar a los alumnos
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
+
 			<!-- Barra lateral -->
-		
+
 			<aside class="col-2 text-center bg-dark">
 
 
@@ -111,7 +130,7 @@
 
 				</ul>
 			</aside>
-			
+
 
 			<div class="col-10 mt-2">
 				<form action="AsignarCurso" method=POST>
@@ -164,20 +183,17 @@
 									</tr>
 								</c:forEach>
 							</div>
-							<div>
-
-							</div>
+							<div></div>
 
 
 							</form>
 						</tbody>
 
 					</table>
-					
-						<button type="submit" class="btn naranja btn-warning ">
-										<strong>GUARDAR</strong>
-						</button>
-					
+
+					<button type="submit" class="btn naranja btn-warning ">
+						<strong>GUARDAR</strong>
+					</button>
 			</div>
 		</div>
 

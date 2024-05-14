@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Curso;
 import modelo.ModeloCurso;
 import modelo.ModeloProfesor;
-import modelo.Profesor;
+
 
 /**
  * Servlet implementation class StoreCursos
@@ -56,11 +56,13 @@ public class StoreCursos extends HttpServlet {
 		curso.setProfesor(modeloProfesor.get(idProfesor));
 
 		ModeloCurso modeloCurso = new ModeloCurso();
-		modeloCurso.insert(curso);
+		if(modeloCurso.insert(curso) == true) {
+			response.sendRedirect("IndexCursos?msg=insertOk");
+		} else {
+			response.sendRedirect("IndexCursos?msg=insertError");
+		}
 
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexCursos");
+		
 	}
 
 }

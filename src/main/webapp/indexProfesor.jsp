@@ -25,6 +25,10 @@
 				<div class="container-fluid">
 					<a href="landingPage.jsp"><img class="ms-3"
 						src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
+
+					<!-- Boton de matriculacion -->
+					<a class="btn btn-outline-warning" style="margin-right: 20px"
+						href="IndexMatriculas"> MATRICULAR ALUMNOS</a>
 				</div>
 			</nav>
 		</div>
@@ -37,16 +41,17 @@
 					aria-label="Close"></button>
 			</div>
 		</c:if>
-		
+
 		<c:if test="${msg=='errorFormatoDniInsert'}">
 			<div class="alert alert-danger alert-dismissible fade show m-0"
 				role="alert">
-				<strong>Error:</strong> El formato del DNI es incorrecto. El formato correcto es <strong>"12345678A"</strong>
+				<strong>Error:</strong> El formato del DNI es incorrecto. El formato
+				correcto es <strong>"12345678A"</strong>
 				<button type="button" class="btn-close" data-bs-dismiss="alert"
 					aria-label="Close"></button>
 			</div>
 		</c:if>
-		
+
 		<c:if test="${msg=='errorDniRepetidoInsert'}">
 			<div class="alert alert-danger alert-dismissible fade show m-0"
 				role="alert">
@@ -55,7 +60,7 @@
 					aria-label="Close"></button>
 			</div>
 		</c:if>
-		
+
 		<c:if test="${msg=='deleteOk'}">
 			<div class="alert alert-success alert-dismissible fade show m-0"
 				role="alert">
@@ -64,16 +69,17 @@
 					aria-label="Close"></button>
 			</div>
 		</c:if>
-		
+
 		<c:if test="${msg=='deleteError'}">
 			<div class="alert alert-danger alert-dismissible fade show m-0"
 				role="alert">
-				<strong>No puedes hacer eso!!</strong> El profesor tiene un curso asignado.
+				<strong>No puedes hacer eso!!</strong> El profesor tiene un curso
+				asignado.
 				<button type="button" class="btn-close" data-bs-dismiss="alert"
 					aria-label="Close"></button>
 			</div>
 		</c:if>
-		
+
 		<c:if test="${msg=='editOk'}">
 			<div class="alert alert-success alert-dismissible fade show m-0"
 				role="alert">
@@ -82,20 +88,22 @@
 					aria-label="Close"></button>
 			</div>
 		</c:if>
-		
+
 		<c:if test="${msg=='errorFormatoDniEdit'}">
 			<div class="alert alert-danger alert-dismissible fade show m-0"
 				role="alert">
-				<strong>Error:</strong> El formato del DNI que estas editando es incorrecto.El formato correcto es <strong>"12345678A"</strong>
+				<strong>Error:</strong> El formato del DNI que estas editando es
+				incorrecto.El formato correcto es <strong>"12345678A"</strong>
 				<button type="button" class="btn-close" data-bs-dismiss="alert"
 					aria-label="Close"></button>
 			</div>
 		</c:if>
-		
+
 		<c:if test="${msg=='errorDniRepetidoEdit'}">
 			<div class="alert alert-danger alert-dismissible fade show m-0"
 				role="alert">
-				<strong>Error:</strong> El DNI que quieres cambiar ya existe en la base de datos.
+				<strong>Error:</strong> El DNI que quieres cambiar ya existe en la
+				base de datos.
 				<button type="button" class="btn-close" data-bs-dismiss="alert"
 					aria-label="Close"></button>
 			</div>

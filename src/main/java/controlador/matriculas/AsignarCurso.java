@@ -43,17 +43,18 @@ public class AsignarCurso extends HttpServlet {
 		doGet(request, response);
 		// Obtener el ID del curso seleccionado
 		String idCurso = request.getParameter("idCurso");
-		
+
 		// Obtener la lista de IDs de alumnos seleccionados
 		String[] alumnosSeleccionados = request.getParameterValues("alumnosSeleccionados[]");
-		if(idCurso==null || alumnosSeleccionados==null) {}else {
-		//Matricular a los alumnos en el curso
-		ModeloAlumno modeloAlumno = new ModeloAlumno();
-		modeloAlumno.matricular(idCurso, alumnosSeleccionados);
+		if (idCurso == null || alumnosSeleccionados == null) {
+			response.sendRedirect("IndexMatriculas?msg=insertError");
+		} else {
+			// Matricular a los alumnos en el curso
+			ModeloAlumno modeloAlumno = new ModeloAlumno();
+			modeloAlumno.matricular(idCurso, alumnosSeleccionados);
+			response.sendRedirect("IndexMatriculas?msg=insertOk");
 		}
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexMatriculas");
+		
 	}
 
 }

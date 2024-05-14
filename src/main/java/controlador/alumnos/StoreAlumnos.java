@@ -47,8 +47,13 @@ public class StoreAlumnos extends HttpServlet {
 		String dni = request.getParameter("dni");
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
-		int edad = Integer.parseInt(request.getParameter("edad"));
+		Integer edad = request.getParameter("edad") != "" ? Integer.parseInt(request.getParameter("edad")) : null;
+
 		
+		if (edad == null) {
+			response.sendRedirect("IndexAlumnos?msg=edadInsuficiente");
+			return;
+		}
 
 		// guardar en la BBDD
 		Alumno alumno = new Alumno();
@@ -56,15 +61,14 @@ public class StoreAlumnos extends HttpServlet {
 		alumno.setNombre(nombre);
 		alumno.setApellido(apellido);
 		alumno.setEdad(edad);
-		
 
 		ModeloAlumno modeloAlumno = new ModeloAlumno();
-		
+
 		// enviar mensaje de respuesta y decidir si insertar o no
-		if (Validator.validarDni(dni) == true && modeloAlumno.checkDniRepetido(dni) == false && edad>=16) {
+		if (Validator.validarDni(dni) == true && modeloAlumno.checkDniRepetido(dni) == false && edad >= 16) {
 			modeloAlumno.insert(alumno);
 			response.sendRedirect("IndexAlumnos?msg=insertOk");
-		} else if (edad<16) {
+		} else if (edad < 16) {
 			response.sendRedirect("IndexAlumnos?msg=edadInsuficiente");
 		} else if (modeloAlumno.checkDniRepetido(dni) == true) {
 			response.sendRedirect("IndexAlumnos?msg=errorDniRepetidoInsert");
@@ -72,7 +76,6 @@ public class StoreAlumnos extends HttpServlet {
 			response.sendRedirect("IndexAlumnos?msg=errorFormatoDniInsert");
 		}
 
-		
 	}
 
 }

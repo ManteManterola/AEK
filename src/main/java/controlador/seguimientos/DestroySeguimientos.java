@@ -36,9 +36,7 @@ public class DestroySeguimientos extends HttpServlet {
 		ModeloSeguimiento modeloSeguimiento = new ModeloSeguimiento();
 		modeloSeguimiento.delete(id);
 		
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexSeguimientos");
+		response.sendRedirect("IndexSeguimientos?msg=deleteOk");
 	}
 
 	/**
