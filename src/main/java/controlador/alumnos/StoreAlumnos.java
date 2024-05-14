@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.Alumno;
 import modelo.ModeloAlumno;
-import modelo.ModeloCurso;
+import modelo.Validator;
 
 /**
  * Servlet implementation class StoreAlumnos
@@ -51,7 +51,6 @@ public class StoreAlumnos extends HttpServlet {
 		
 
 		// guardar en la BBDD
-		ModeloCurso modeloCurso = new ModeloCurso();
 		Alumno alumno = new Alumno();
 		alumno.setDni(dni);
 		alumno.setNombre(nombre);
@@ -60,11 +59,20 @@ public class StoreAlumnos extends HttpServlet {
 		
 
 		ModeloAlumno modeloAlumno = new ModeloAlumno();
-		modeloAlumno.insert(alumno);
+		
+		// enviar mensaje de respuesta y decidir si insertar o no
+		if (Validator.validarDni(dni) == true && modeloAlumno.checkDniRepetido(dni) == false && edad>=16) {
+			modeloAlumno.insert(alumno);
+			response.sendRedirect("IndexAlumnos?msg=insertOk");
+		} else if (edad<16) {
+			response.sendRedirect("IndexAlumnos?msg=edadInsuficiente");
+		} else if (modeloAlumno.checkDniRepetido(dni) == true) {
+			response.sendRedirect("IndexAlumnos?msg=errorDniRepetidoInsert");
+		} else {
+			response.sendRedirect("IndexAlumnos?msg=errorFormatoDniInsert");
+		}
 
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexAlumnos");
+		
 	}
 
 }

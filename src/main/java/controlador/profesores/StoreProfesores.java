@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloProfesor;
 import modelo.Profesor;
+import modelo.Validator;
 
 /**
  * Servlet implementation class StoreProfesores
@@ -53,11 +54,16 @@ public class StoreProfesores extends HttpServlet {
 		profesor.setApellido(apellido);
 
 		ModeloProfesor modeloProfesor = new ModeloProfesor();
-		modeloProfesor.insertarProfesor(profesor);
 
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexProfesores");
+		// enviar mensaje de respuesta y decidir si insertar o no
+		if(Validator.validarDni(dni)==true && modeloProfesor.checkDniRepetido(dni)==false) {
+			modeloProfesor.insertarProfesor(profesor);
+			response.sendRedirect("IndexProfesores?msg=insertOk");
+		} else if (Validator.validarDni(dni)==false){
+			response.sendRedirect("IndexProfesores?msg=errorFormatoDniIsnert");
+		} else {
+			response.sendRedirect("IndexProfesores?msg=errorDniRepetidoInsert");
+		}
 	}
 
 }
