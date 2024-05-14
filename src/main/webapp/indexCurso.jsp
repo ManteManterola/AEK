@@ -4,7 +4,7 @@
     <%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
     
 <!doctype html>
-<html class="bg-dark" lang="en">
+<html class="bg-dark" lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -28,8 +28,30 @@
         </div>
 
         <div class="row">
+        
+        <!-- Mensajes de resultado -->
+			<c:if test="${msg=='deleteOk'}">
+				<div class="alert alert-success alert-dismissible fade show m-0"
+					role="alert">
+					<strong>Ok!</strong> El curso se elimino correctamente.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
 
-            <!-- Barra lateral -->
+
+			<c:if test="${msg=='deleteError'}">
+				<div class="alert alert-danger alert-dismissible fade show m-0"
+					role="alert">
+					<strong>No puedes hacer eso!!</strong> El curso tiene alumnos
+					asignados.
+					<button type="button" class="btn-close" data-bs-dismiss="alert"
+						aria-label="Close"></button>
+				</div>
+			</c:if>
+			<!-- Barra lateral -->
+            
+           
 
 			<aside class="col-2 text-center bg-dark"> 
 

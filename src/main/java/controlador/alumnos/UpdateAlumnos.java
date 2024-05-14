@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Alumno;
 import modelo.ModeloAlumno;
 import modelo.ModeloCurso;
+import modelo.Validator;
 
 /**
  * Servlet implementation class UpdateAlumnos
@@ -64,13 +65,20 @@ public class UpdateAlumnos extends HttpServlet {
 		if (idCurso != null) {
 			alumno.setCurso(modeloCurso.get(idCurso));
 		}
-		
 
-		modeloAlumno.update(alumno);
-
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexAlumnos");
+		if (modeloAlumno.checkDniNoHaCambiado(alumno) == true && edad > 16) {
+			modeloAlumno.update(alumno);
+			response.sendRedirect("IndexAlumnos?msg=editOk");
+		} else if (Validator.validarDni(dni) == true && modeloAlumno.checkDniRepetido(dni) == false && edad > 16) {
+			modeloAlumno.update(alumno);
+			response.sendRedirect("IndexAlumnos?msg=editOk");
+		} else if (Validator.validarDni(dni) == false) {
+			response.sendRedirect("IndexAlumnos?msg=errorFormatoDniEdit");
+		} else if (edad < 16) {
+			response.sendRedirect("IndexAlumnos?msg=edadInsuficiente");
+		} else {
+			response.sendRedirect("IndexAlumnos?msg=errorDniRepetidoEdit");
+		}
 	}
 
 }

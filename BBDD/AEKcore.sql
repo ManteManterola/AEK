@@ -99,7 +99,7 @@ MODIFY COLUMN id INT AUTO_INCREMENT;
 ------------------------------------------------------------------------------
 -- Alter table seguimientos --
 ALTER TABLE SEGUIMIENTOS
-ADD CONSTRAINT fk_seguimiento_alumno FOREIGN KEY (idAlumno) REFERENCES ALUMNOS(id);
+ADD CONSTRAINT fk_seguimiento_alumno FOREIGN KEY (idAlumno) REFERENCES ALUMNOS(id) ON DELETE CASCADE;
 
 ALTER TABLE SEGUIMIENTOS
 ADD CONSTRAINT pk_seguimientos PRIMARY KEY (idAlumno);
@@ -121,7 +121,24 @@ ALTER TABLE HISTORICO
 ADD CONSTRAINT fk_historico_curso FOREIGN KEY (idCurso) REFERENCES CURSOS(id);
 --------------------------------------------------------------------------------------------------
 -- CONSULTAS --
+-- Saca todos los cursos sin programa --
+DROP PROCEDURE IF EXISTS CURSOSSINPROGRAMA;
+
+DELIMITER //
+
+CREATE PROCEDURE CURSOSSINPROGRAMA()
+BEGIN
+    SELECT CURSOS.*
+    FROM CURSOS
+    LEFT JOIN PROGRAMAS ON CURSOS.id = PROGRAMAS.idCurso
+    WHERE PROGRAMAS.idCurso IS NULL;
+END//
+
+DELIMITER ;
+
+CALL CURSOSSINPROGRAMA();
 -- Saca todos los alumnos que no tienen seguimiento --
+DROP PROCEDURE IF EXISTS ALUMNOSSINSEGUIMIENTO;
 DELIMITER //
 CREATE PROCEDURE ALUMNOSSINSEGUIMIENTO()
 

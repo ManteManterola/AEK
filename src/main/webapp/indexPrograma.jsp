@@ -147,7 +147,7 @@
 											<c:forEach items="${cursosSinPrograma}"
 												var="cursosSinPrograma">
 												<option value="${cursosSinPrograma.id}">
-													${cursosSinPrograma.nivel}</option>
+													${cursosSinPrograma.nivel} ${cursosSinPrograma.turno}</option>
 											</c:forEach>
 										</select>
 									</p>
@@ -189,7 +189,7 @@
 						<!-- Datos -->
 						<c:forEach items="${programas}" var="programa">
 							<tr>
-								<td>${programa.curso.nivel}</td>
+								<td>${programa.curso.nivel} ${programa.curso.turno}</td>
 								<td>
 									<!-- boton ver contenido -->
 

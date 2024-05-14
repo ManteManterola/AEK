@@ -33,6 +33,7 @@ public class IndexCursos extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("msg", request.getParameter("msg"));
 		
 		ArrayList<Curso> cursos = new ModeloCurso().getAll();
 		ArrayList<Profesor> profesores = new ModeloProfesor().getAll();

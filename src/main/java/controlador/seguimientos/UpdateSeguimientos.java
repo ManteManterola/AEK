@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.ModeloAlumno;
 import modelo.ModeloSeguimiento;
 import modelo.Seguimiento;
+import modelo.Validator;
 
 /**
  * Servlet implementation class UpdateSeguimientos
@@ -43,27 +44,29 @@ public class UpdateSeguimientos extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// recibir los datos del seguimiento
-		int faltas = Integer.parseInt(request.getParameter("faltas"));
-		String participacion = request.getParameter("participacion");
-		String rendimiento = request.getParameter("rendimiento");
-		int nota = Integer.parseInt(request.getParameter("nota"));
-		int idAlumno = Integer.parseInt(request.getParameter("idAlumno"));
-		
-		// almacenar el seguimiento en la bbdd
-		ModeloAlumno modeloAlumno = new ModeloAlumno();
-		Seguimiento seguimiento = new Seguimiento();
-		seguimiento.setFaltas(faltas);
-		seguimiento.setParticipacion(participacion);
-		seguimiento.setRendimiento(rendimiento);
-		seguimiento.setNota(nota);
-		seguimiento.setAlumno(modeloAlumno.get(idAlumno));
-		
-		ModeloSeguimiento modeloSeguimiento = new ModeloSeguimiento();
-		modeloSeguimiento.update(seguimiento);
-		
-		// abrir lo que quiera, en mi caso inicio
-		// como ya tengo un controlador que abra el inicio redirijo a ese controlador
-		response.sendRedirect("IndexSeguimientos");	
+		String faltas = request.getParameter("faltas");
+		//Validar que faltas es un numero
+		if (Validator.esNumeroEntero(faltas)==true) {
+			String participacion = request.getParameter("participacion");
+			String rendimiento = request.getParameter("rendimiento");
+			int nota = Integer.parseInt(request.getParameter("nota"));
+			int idAlumno = Integer.parseInt(request.getParameter("idAlumno"));
+			
+			//almacenar el seguimiento en la bbdd
+			ModeloAlumno modeloAlumno = new ModeloAlumno();
+			Seguimiento seguimiento = new Seguimiento();
+			seguimiento.setFaltas(Integer.parseInt(faltas));
+			seguimiento.setParticipacion(participacion);
+			seguimiento.setRendimiento(rendimiento);
+			seguimiento.setNota(nota);
+			seguimiento.setAlumno(modeloAlumno.get(idAlumno));
+			
+			ModeloSeguimiento modeloSeguimiento = new ModeloSeguimiento();
+			modeloSeguimiento.update(seguimiento);
+			response.sendRedirect("IndexSeguimientos?msg=editOk");	
+		} else {
+			response.sendRedirect("IndexSeguimientos?msg=editError");
+		}
 	}
 
 }

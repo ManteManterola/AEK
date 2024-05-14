@@ -131,6 +131,25 @@ public class ModeloCurso extends Conector{
 		return cursos;
 	}
 
-	
+	public boolean tieneAlgunAlumno(int idCurso) {
+		try {
+			PreparedStatement pst = this.conexion.prepareStatement("SELECT * FROM ALUMNOS WHERE idCurso=?");
+			pst.setInt(1, idCurso);
+			ResultSet rs = pst.executeQuery();
+			
+			if (rs.next()) {
+				return true;
+
+			}
+
+			else {
+				return false;
+			}
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		return true;
+	}
 	
 }

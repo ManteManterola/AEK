@@ -31,7 +31,79 @@
         </div>
 
         <div class="row">
-
+        
+        <!-- Mensajes de resultado -->
+		<c:if test="${msg=='insertOk'}">
+			<div class="alert alert-success alert-dismissible fade show m-0"
+				role="alert">
+				<strong>Ok!</strong> Alumno creado correctamente.
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:if>
+		
+		<c:if test="${msg=='edadInsuficiente'}">
+			<div class="alert alert-danger alert-dismissible fade show m-0"
+				role="alert">
+				<strong>Error:</strong> El alumno debe ser mayor de <strong>16 </strong>años.
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:if>
+		
+		<c:if test="${msg=='errorDniRepetidoInsert'}">
+			<div class="alert alert-danger alert-dismissible fade show m-0"
+				role="alert">
+				<strong>Error:</strong> El DNI insertado ya existe en la base de datos.
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:if>
+		
+		<c:if test="${msg=='errorFormatoDniInsert'}">
+			<div class="alert alert-danger alert-dismissible fade show m-0"
+				role="alert">
+				<strong>Error:</strong> El formato del DNI es incorrecto. El formato correcto es <strong>"12345678A"</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:if>
+		
+		<c:if test="${msg=='editOk'}">
+			<div class="alert alert-success alert-dismissible fade show m-0"
+				role="alert">
+				<strong>Ok!</strong> Alumno editado correctamente.
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:if>
+		
+		<c:if test="${msg=='errorFormatoDniEdit'}">
+			<div class="alert alert-danger alert-dismissible fade show m-0"
+				role="alert">
+				<strong>Error:</strong> El formato del DNI que estas editando es incorrecto.El formato correcto es <strong>"12345678A"</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:if>
+		
+		<c:if test="${msg=='errorDniRepetidoEdit'}">
+			<div class="alert alert-danger alert-dismissible fade show m-0"
+				role="alert">
+				<strong>Error:</strong> El DNI que quieres cambiar ya existe en la base de datos.
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:if>
+		
+		<c:if test="${msg=='deleteOk'}">
+			<div class="alert alert-success alert-dismissible fade show m-0"
+				role="alert">
+				<strong>Ok!</strong> El alumno se elimino correctamente.
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:if>
             <!-- Barra lateral -->
             
           

@@ -116,12 +116,5 @@ INSERT INTO PROGRAMAS (contenido, criterioEvaluacion, idCurso) VALUES ('A ver es
 -- Eliminar todos los campos de seguimientos
 DELETE FROM SEGUIMIENTOS;
 
--- Insertar datos en la tabla SEGUIMIENTOS
-INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (2, 'Media', 'Medio', 1);
-INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (0, 'Alta', 'Alto', 2);
-INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (5, 'Baja', 'Bajo', 3);
-INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (1, 'Media', 'Medio', 4);
-INSERT INTO SEGUIMIENTOS (faltas, participacion, rendimiento, idAlumno) VALUES (3, 'Alta', 'Sobresaliente', 5);
-
 ----------------------------------------------------------------------------------------------------------------------------
 
