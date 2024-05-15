@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="style1.css">
 </head>
 
-<body class="bg-light-subtle">
+<body class="bg-dark">
     <div>
 
         <div class="row">
-            <nav class="navbar bg-dark navbar-expand-lg ">
+            <nav class="navbar bg-dark navbar">
                 <div class="container-fluid">
                     <a href="landingPage.jsp"><img class="ms-3" src="imgs/logo-aek.png" width="30%" height="60%" alt="logo-aek"></a>
 
@@ -184,7 +184,7 @@
             <div class="col-10 mt-2">
 
                 <!-- boton crear Alumno -->
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#crearAlumno">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#crearAlumno">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                         class="bi bi-plus-square-fill" viewBox="0 0 16 16">
                         <path
