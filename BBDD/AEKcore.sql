@@ -172,3 +172,16 @@ BEGIN
 END//
 
 DELIMITER ;
+
+-- Crear roles y usuarios
+-- CREATE ROLE IF NOT EXISTS aekAdmin;
+-- CREATE ROLE IF NOT EXISTS aekUser;
+
+-- GRANT CREATE USER, CREATE TABLESPACE, ALTER ON . TO aekAdmin;
+-- GRANT CREATE ON . TO aekUser;
+
+-- CREATE USER IF NOT EXISTS 'aek_admin'@'localhost' IDENTIFIED BY 'admin';
+-- CREATE USER IF NOT EXISTS 'aek_user'@'localhost' IDENTIFIED BY 'user';
+
+-- GRANT aekAdmin TO 'aek_admin'@'localhost';
+-- GRANT aekUser TO 'aek_user'@'localhost';
