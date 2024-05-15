@@ -47,6 +47,7 @@
 				</div>
 			</c:if>
 
+
 			<c:if test="${msg=='deleteError'}">
 				<div class="alert alert-danger alert-dismissible fade show m-0"
 					role="alert">
