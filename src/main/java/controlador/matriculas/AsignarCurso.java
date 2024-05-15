@@ -46,7 +46,7 @@ public class AsignarCurso extends HttpServlet {
 
 		// Obtener la lista de IDs de alumnos seleccionados
 		String[] alumnosSeleccionados = request.getParameterValues("alumnosSeleccionados[]");
-		if (idCurso == null || alumnosSeleccionados == null) {
+		if (idCurso.equals("0") || alumnosSeleccionados == null) {
 			response.sendRedirect("IndexMatriculas?msg=insertError");
 		} else {
 			// Matricular a los alumnos en el curso

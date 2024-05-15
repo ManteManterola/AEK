@@ -44,7 +44,7 @@
 			<c:if test="${msg=='insertError'}">
 				<div class="alert alert-danger alert-dismissible fade show m-0"
 					role="alert">
-					<strong>Error:</strong> Elige un curso para asignar a los alumnos
+					<strong>Error:</strong> Elige un curso para asignar a los alumnos y como minimo un alumno.
 					<button type="button" class="btn-close" data-bs-dismiss="alert"
 						aria-label="Close"></button>
 				</div>
