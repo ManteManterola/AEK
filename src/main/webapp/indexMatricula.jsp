@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="style1.css">
 </head>
 
-<body class="bg-light-subtle">
+<body class="bg-dark">
 	<div>
 
 		<div class="row">

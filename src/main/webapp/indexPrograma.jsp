@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="style1.css">
 </head>
 
-<body class="bg-light-subtle">
+<body class="bg-dark">
 
 	<div>
 
@@ -159,7 +159,7 @@
 
 				<!-- boton crear programa-->
 
-				<button type="button" class="btn btn-light" data-bs-toggle="modal"
+				<button type="button" class="btn" data-bs-toggle="modal"
 					data-bs-target="#crearPrograma">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
 						fill="currentColor" class="bi bi-plus-square-fill"
