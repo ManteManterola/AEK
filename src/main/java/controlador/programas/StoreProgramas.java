@@ -48,10 +48,11 @@ public class StoreProgramas extends HttpServlet {
 		
 		ModeloPrograma modeloPrograma = new ModeloPrograma();
 		
-		if(modeloPrograma.insert(programa) == true) {
-			response.sendRedirect("IndexProgramas?msg=insertOk");
-		} else {
+		if(idCurso == 0) {
 			response.sendRedirect("IndexProgramas?msg=insertError");
+		} else {
+			modeloPrograma.insert(programa);
+			response.sendRedirect("IndexProgramas?msg=insertOk");
 		}
 		
 		

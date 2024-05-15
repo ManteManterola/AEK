@@ -45,6 +45,15 @@
 						aria-label="Close"></button>
 				</div>
 			</c:if>
+			
+			<c:if test="${msg=='insertError'}">
+			<div class="alert alert-danger alert-dismissible fade show m-0"
+				role="alert">
+				<strong>Error:</strong> Introduce un curso por favor.
+				<button type="button" class="btn-close" data-bs-dismiss="alert"
+					aria-label="Close"></button>
+			</div>
+		</c:if>
 
 			<c:if test="${msg=='editOk'}">
 				<div class="alert alert-success alert-dismissible fade show m-0"
@@ -220,7 +229,7 @@
 						<!-- Datos -->
 						<c:forEach items="${programas}" var="programa">
 							<tr>
-								<td>${programa.curso.nivel}${programa.curso.turno}</td>
+								<td>${programa.curso.nivel} ${programa.curso.turno}</td>
 								<td>
 									<!-- boton ver contenido -->
 

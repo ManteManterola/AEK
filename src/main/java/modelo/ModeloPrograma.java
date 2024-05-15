@@ -50,6 +50,8 @@ public class ModeloPrograma extends Conector {
 
 	public boolean insert(Programa programa) {
 		
+		
+		
 		String sql = "INSERT INTO PROGRAMAS (contenido,criterioEvaluacion,idCurso) VALUES (?,?,?)";
 		
 		PreparedStatement pst;
