@@ -56,10 +56,12 @@ public class StoreCursos extends HttpServlet {
 		curso.setProfesor(modeloProfesor.get(idProfesor));
 
 		ModeloCurso modeloCurso = new ModeloCurso();
-		if(modeloCurso.insert(curso) == true) {
-			response.sendRedirect("IndexCursos?msg=insertOk");
+		
+		if(idProfesor == 0) {
+			response.sendRedirect("IndexProgramas?msg=insertError");
 		} else {
-			response.sendRedirect("IndexCursos?msg=insertError");
+			modeloCurso.insert(curso);
+			response.sendRedirect("IndexProgramas?msg=insertOk");
 		}
 
 		
