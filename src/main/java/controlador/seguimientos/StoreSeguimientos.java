@@ -14,6 +14,7 @@ import modelo.Validator;
 
 /**
  * Servlet implementation class StoreSeguimientos
+ * Este servlet gestiona la inserción de nuevos seguimientos en la base de datos a través de una solicitud POST.
  */
 @WebServlet("/StoreSeguimientos")
 public class StoreSeguimientos extends HttpServlet {
@@ -21,39 +22,37 @@ public class StoreSeguimientos extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#HttpServlet()
+	 * Constructor por defecto.
 	 */
 	public StoreSeguimientos() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * Este método maneja las solicitudes GET.
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+		// Método vacío, la lógica para manejar la inserción de seguimientos se realiza en doPost.
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * Este método maneja las solicitudes POST, recibe los datos del seguimiento y los inserta en la base de datos.
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
-		//recibir los datos del seguimiento
+		// Recibir los datos del seguimiento
 		String faltas = request.getParameter("faltas");
-		//Validar que faltas es un numero
-		if (Validator.esNumeroEntero(faltas)==true) {
+		// Validar que "faltas" sea un número entero
+		if (Validator.esNumeroEntero(faltas)) {
 			String participacion = request.getParameter("participacion");
 			String rendimiento = request.getParameter("rendimiento");
 			int nota = Integer.parseInt(request.getParameter("nota"));
 			int idAlumno = Integer.parseInt(request.getParameter("idAlumno"));
 			
-			//almacenar el seguimiento en la bbdd
+			// Almacenar el seguimiento en la base de datos
 			ModeloAlumno modeloAlumno = new ModeloAlumno();
 			Seguimiento seguimiento = new Seguimiento();
 			seguimiento.setFaltas(Integer.parseInt(faltas));
@@ -68,7 +67,5 @@ public class StoreSeguimientos extends HttpServlet {
 		} else {
 			response.sendRedirect("IndexSeguimientos?msg=insertError");
 		}
-		
 	}
-
 }
