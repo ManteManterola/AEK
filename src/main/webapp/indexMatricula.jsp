@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="style1.css">
 </head>
 
-<body class="bg-light-subtle">
+<body class="bg-dark">
 	<div>
 
 		<div class="row">
@@ -151,7 +151,7 @@
 
 
 							<div>
-								<p>
+								<p  style="color: white">
 									Curso al que se inscribiran los alumnos seleccionados <select
 										name="idCurso">
 										<option value=0></option>

@@ -76,7 +76,8 @@ ADD CONSTRAINT chk_turno CHECK (turno IN ('Diurno', 'Vespertino', 'Nocturno'));
 ----------------------------------------------------------------------------------
 -- Alter table programas --
 ALTER TABLE PROGRAMAS
-ADD CONSTRAINT fk_programa_curso FOREIGN KEY (idCurso) REFERENCES CURSOS(id) ON DELETE CASCADE;
+
+ADD CONSTRAINT fk_programa_curso FOREIGN KEY (idCurso) REFERENCES CURSOS(id) ON DELEETE CASCADE;
 
 ALTER TABLE PROGRAMAS
 ADD CONSTRAINT pk_programas PRIMARY KEY (idCurso);
