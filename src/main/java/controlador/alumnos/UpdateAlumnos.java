@@ -13,7 +13,8 @@ import modelo.ModeloCurso;
 import modelo.Validator;
 
 /**
- * Servlet implementation class UpdateAlumnos
+ * Implementación del Servlet UpdateAlumnos
+ * Este servlet maneja la actualización de los datos de un alumno existente.
  */
 @WebServlet("/UpdateAlumnos")
 public class UpdateAlumnos extends HttpServlet {
@@ -21,6 +22,7 @@ public class UpdateAlumnos extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#HttpServlet()
+	 * Constructor para el servlet UpdateAlumnos.
 	 */
 	public UpdateAlumnos() {
 		super();
@@ -28,32 +30,39 @@ public class UpdateAlumnos extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * Maneja la solicitud HTTP GET. Por ahora, solo escribe una respuesta simple.
+	 * 
+	 * @param request  Objeto HttpServletRequest que contiene la solicitud realizada por el cliente al servlet
+	 * @param response Objeto HttpServletResponse que contiene la respuesta que el servlet envía al cliente
+	 * @throws ServletException si se detecta un error de entrada o salida cuando el servlet maneja la solicitud GET
+	 * @throws IOException      si la solicitud GET no se puede manejar
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * Maneja la solicitud HTTP POST. Recibe los datos del alumno, los valida y actualiza los datos en la base de datos.
+	 * 
+	 * @param request  Objeto HttpServletRequest que contiene la solicitud realizada por el cliente al servlet
+	 * @param response Objeto HttpServletResponse que contiene la respuesta que el servlet envía al cliente
+	 * @throws ServletException si se detecta un error de entrada o salida cuando el servlet maneja la solicitud POST
+	 * @throws IOException      si la solicitud POST no se puede manejar
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		// recibir los datos del alumno
+		// Recibir los datos del alumno
 		int id = Integer.parseInt(request.getParameter("id"));
 		String dni = request.getParameter("dni");
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
 		int edad = Integer.parseInt(request.getParameter("edad"));
-		Integer idCurso = request.getParameter("idCurso").equals("") ? null
-				: Integer.parseInt(request.getParameter("idCurso"));
+		Integer idCurso = request.getParameter("idCurso").equals("") ? null : Integer.parseInt(request.getParameter("idCurso"));
 
-		// guardar en la BBDD
+		// Guardar en la base de datos
 		ModeloAlumno modeloAlumno = new ModeloAlumno();
 		ModeloCurso modeloCurso = new ModeloCurso();
 		Alumno alumno = new Alumno();
@@ -66,6 +75,7 @@ public class UpdateAlumnos extends HttpServlet {
 			alumno.setCurso(modeloCurso.get(idCurso));
 		}
 
+		// Validar y actualizar los datos del alumno
 		if (modeloAlumno.checkDniNoHaCambiado(alumno) == true && edad > 16) {
 			modeloAlumno.update(alumno);
 			response.sendRedirect("IndexAlumnos?msg=editOk");
