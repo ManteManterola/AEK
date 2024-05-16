@@ -14,6 +14,7 @@ import modelo.Validator;
 
 /**
  * Servlet implementation class UpdateSeguimientos
+ * Este servlet gestiona la actualización de seguimientos en la base de datos a través de una solicitud POST.
  */
 @WebServlet("/UpdateSeguimientos")
 public class UpdateSeguimientos extends HttpServlet {
@@ -21,38 +22,38 @@ public class UpdateSeguimientos extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#HttpServlet()
+	 * Constructor por defecto.
 	 */
 	public UpdateSeguimientos() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * Este método maneja las solicitudes GET, pero no realiza ninguna acción en esta implementación.
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// Método vacío, la lógica para manejar la actualización de seguimientos se realiza en doPost.
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * Este método maneja las solicitudes POST, recibe los datos del seguimiento a actualizar y realiza la actualización en la base de datos.
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// recibir los datos del seguimiento
+		// Recibir los datos del seguimiento
 		String faltas = request.getParameter("faltas");
-		//Validar que faltas es un numero
-		if (Validator.esNumeroEntero(faltas)==true) {
+		// Validar que "faltas" sea un número entero
+		if (Validator.esNumeroEntero(faltas)) {
 			String participacion = request.getParameter("participacion");
 			String rendimiento = request.getParameter("rendimiento");
 			int nota = Integer.parseInt(request.getParameter("nota"));
 			int idAlumno = Integer.parseInt(request.getParameter("idAlumno"));
 			
-			//almacenar el seguimiento en la bbdd
+			// Almacenar el seguimiento actualizado en la base de datos
 			ModeloAlumno modeloAlumno = new ModeloAlumno();
 			Seguimiento seguimiento = new Seguimiento();
 			seguimiento.setFaltas(Integer.parseInt(faltas));

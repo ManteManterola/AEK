@@ -9,42 +9,52 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.ModeloPrograma;
 
-
 /**
- * Servlet implementation class DestroyProgramas
+ * Implementación del Servlet DestroyProgramas.
+ * Este servlet se encarga de eliminar un programa de la base de datos.
  */
 @WebServlet("/DestroyProgramas")
 public class DestroyProgramas extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
        
     /**
-     * @see HttpServlet#HttpServlet()
+     * Constructor del servlet DestroyProgramas.
      */
     public DestroyProgramas() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//recibir la id
-				int id = Integer.parseInt(request.getParameter("idCurso"));
-				
-				//eliminar el seguimiento
-				ModeloPrograma modeloPrograma = new ModeloPrograma();
-				modeloPrograma.delete(id);
-				
-				response.sendRedirect("IndexProgramas?msg=deleteOk");
-	}
+    /**
+     * Maneja las solicitudes HTTP GET.
+     * 
+     * @param request  Objeto HttpServletRequest que contiene la solicitud realizada por el cliente al servlet
+     * @param response Objeto HttpServletResponse que contiene la respuesta que el servlet envía al cliente
+     * @throws ServletException si se produce un error en la ejecución del servlet
+     * @throws IOException      si se produce un error de entrada/salida
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Recibir el ID del programa a eliminar
+        int id = Integer.parseInt(request.getParameter("idCurso"));
+        
+        // Eliminar el programa de la base de datos
+        ModeloPrograma modeloPrograma = new ModeloPrograma();
+        modeloPrograma.delete(id);
+        
+        // Redirigir a la página de índice de programas con un mensaje de éxito
+        response.sendRedirect("IndexProgramas?msg=deleteOk");
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+    /**
+     * Maneja las solicitudes HTTP POST.
+     * 
+     * @param request  Objeto HttpServletRequest que contiene la solicitud realizada por el cliente al servlet
+     * @param response Objeto HttpServletResponse que contiene la respuesta que el servlet envía al cliente
+     * @throws ServletException si se produce un error en la ejecución del servlet
+     * @throws IOException      si se produce un error de entrada/salida
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Redirigir las solicitudes POST a doGet
+        doGet(request, response);
+    }
 
 }

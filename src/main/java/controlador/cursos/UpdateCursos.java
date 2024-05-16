@@ -12,7 +12,8 @@ import modelo.ModeloCurso;
 import modelo.ModeloProfesor;
 
 /**
- * Servlet implementation class UpdateCursos
+ * Implementación del Servlet UpdateCursos.
+ * Este servlet maneja la actualización de cursos en la base de datos.
  */
 @WebServlet("/UpdateCursos")
 public class UpdateCursos extends HttpServlet {
@@ -20,6 +21,7 @@ public class UpdateCursos extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#HttpServlet()
+	 * Constructor para el servlet UpdateCursos.
 	 */
 	public UpdateCursos() {
 		super();
@@ -29,6 +31,12 @@ public class UpdateCursos extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
+	 * Maneja la solicitud HTTP GET.
+	 * 
+	 * @param request  Objeto HttpServletRequest que contiene la solicitud realizada por el cliente al servlet
+	 * @param response Objeto HttpServletResponse que contiene la respuesta que el servlet envía al cliente
+	 * @throws ServletException si se detecta un error de entrada o salida cuando el servlet maneja la solicitud GET
+	 * @throws IOException      si la solicitud GET no se puede manejar
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -38,6 +46,12 @@ public class UpdateCursos extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
+	 * Maneja la solicitud HTTP POST para actualizar un curso.
+	 * 
+	 * @param request  Objeto HttpServletRequest que contiene la solicitud realizada por el cliente al servlet
+	 * @param response Objeto HttpServletResponse que contiene la respuesta que el servlet envía al cliente
+	 * @throws ServletException si se detecta un error de entrada o salida cuando el servlet maneja la solicitud POST
+	 * @throws IOException      si la solicitud POST no se puede manejar
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -47,7 +61,7 @@ public class UpdateCursos extends HttpServlet {
 		String turno = request.getParameter("turno");
 		int idProfesor = Integer.parseInt(request.getParameter("idProfesor"));
 
-		// almacenar el curso en la bbdd
+		// almacenar el curso en la base de datos
 		ModeloProfesor modeloProfesor = new ModeloProfesor();
 		Curso curso = new Curso();
 		curso.setId(id);
@@ -56,11 +70,12 @@ public class UpdateCursos extends HttpServlet {
 		curso.setProfesor(modeloProfesor.get(idProfesor));
 
 		ModeloCurso modeloCurso = new ModeloCurso();
+		
+		// Verificar si se pudo actualizar el curso correctamente
 		if(modeloCurso.update(curso) == 0) {
 			response.sendRedirect("IndexCursos?msg=editError");
 		} else {
 			response.sendRedirect("IndexCursos?msg=editOk");
 		}
 	}
-
 }
