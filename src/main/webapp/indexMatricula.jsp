@@ -151,7 +151,7 @@
 
 
 							<div>
-								<p>
+								<p  style="color: white">
 									Curso al que se inscribiran los alumnos seleccionados <select
 										name="idCurso">
 										<option value=0></option>
